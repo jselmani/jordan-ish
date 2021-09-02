@@ -3,31 +3,23 @@ import React from 'react';
 import './HomePage.styles.scss';
 
 // Swiper
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-SwiperCore.use([Navigation, Pagination]);
+// import SwiperCore, { Navigation, Pagination } from 'swiper';
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/swiper.scss';
+// import 'swiper/components/navigation/navigation.scss';
+// import 'swiper/components/pagination/pagination.scss';
+// SwiperCore.use([Navigation, Pagination]);
 
 
 const HomePage = () => {
 
-    const slides = [];
-    for(let i = 0; i < 3; i++) {
-        slides.push(
-            <SwiperSlide key={`slide-${i}`}>
-                <img src={`https://picsum.photos/id/${i+1}/500/300`} alt="pic"/>
-            </SwiperSlide>
-        );
-    }
-
     return (
         <div className="homepage">
-            <div className="nav-swiper">
-                <Swiper navigation={true} loop={true} pagination={{"clickable": true}}>
-                    { slides }
-                </Swiper>
+            <div className="jumbotron-container">
+                <img src="https://air.jordan.com/wp-content/uploads/2019/09/HeroImage-D-3.jpg" alt="Jordan Brand" />
+            </div>
+            <div className="cta-text-container">
+                <h1>BECOME YOUR AIRNESS</h1>
             </div>
         </div>
     )
