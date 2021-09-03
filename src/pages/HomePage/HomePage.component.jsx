@@ -1,6 +1,9 @@
 import React from 'react';
 
+import ProductCard from '../../components/ProductCard/ProductCard.component';
+
 import './HomePage.styles.scss';
+import heroImage from '../../images/jordan-hero-image.jpg';
 
 // Swiper
 // import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -16,11 +19,12 @@ const HomePage = () => {
     return (
         <div className="homepage">
             <div className="jumbotron-container">
-                <img src="https://air.jordan.com/wp-content/uploads/2019/09/HeroImage-D-3.jpg" alt="Jordan Brand" />
+                <img src={heroImage} alt="Jordan Brand" />
             </div>
             <div className="cta-text-container">
                 <h1>BECOME YOUR AIRNESS</h1>
             </div>
+            <ProductCard />
         </div>
     )
 }
