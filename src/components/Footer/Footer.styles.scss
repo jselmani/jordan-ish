@@ -1,0 +1,23 @@
+.footer {
+    background-color: black;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-top: 15px;
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        height: 100%;
+
+        .credits {
+            padding-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
