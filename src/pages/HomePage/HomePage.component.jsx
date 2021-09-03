@@ -1,7 +1,5 @@
 import React from 'react';
 
-import ProductCard from '../../components/ProductCard/ProductCard.component';
-
 import './HomePage.styles.scss';
 import heroImage from '../../images/jordan-hero-image.jpg';
 
@@ -24,7 +22,6 @@ const HomePage = () => {
             <div className="cta-text-container">
                 <h1>BECOME YOUR AIRNESS</h1>
             </div>
-            <ProductCard />
         </div>
     )
 }

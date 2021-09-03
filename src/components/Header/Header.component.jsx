@@ -14,6 +14,9 @@ const Header = () => {
                 <div className="option">
                     <span>SHOP</span>
                 </div>
+                <div className="option">
+                    <span>ABOUT</span>
+                </div>
             </div>
         </div>
     );
