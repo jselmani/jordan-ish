@@ -3,27 +3,29 @@
     width: 100%;
     margin-bottom: 15px;
     background-color: black;
+    display: flex;
+    justify-content: space-between;
 
+    .logo-container {
+        width: 125px;
+        padding: 10px;
+        text-align: center;
+
+        img {
+            height: 75px;
+        }
+    }
+    
     .options {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
-
-        .logo-container {
-            width: 150px;
-            padding: 25px;
-            text-align: center;
-    
-            img {
-                height: 75px;
-            }
-        }
+        justify-content: flex-end;
 
         .option {
-            padding: 10px 15px;
+            padding: 10px 25px;
             cursor: pointer;
             color: white;
         }

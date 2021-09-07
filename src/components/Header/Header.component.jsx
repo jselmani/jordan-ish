@@ -7,10 +7,10 @@ import './Header.styles.scss';
 const Header = () => {
     return (
         <div className="header">
+            <div className="logo-container">
+                <img src={jordanLogo} alt="jordan logo" />
+            </div>
             <div className="options">
-                <div className="logo-container">
-                    <img src={jordanLogo} alt="jordan logo" />
-                </div>
                 <div className="option">
                     <span>SHOP</span>
                 </div>
