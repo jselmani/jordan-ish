@@ -1,0 +1,12 @@
+.jumbotron {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    filter: brightness(50%);
+
+    .hero-image {
+        position: absolute;
+    }
+}

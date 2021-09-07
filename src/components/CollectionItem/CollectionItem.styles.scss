@@ -1,4 +1,4 @@
-.directory-card-container {
+.collection-item {
     border-radius: 8px;
     box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
     height: auto;
@@ -20,7 +20,7 @@
         height: auto;
     }
 
-    .tag-container {
+    .tag {
         background-color: lightgrey;
         font-size: 12px;
         font-weight: 600;
@@ -33,7 +33,7 @@
         margin: 10px;
     }
 
-    .content-container {
+    .content {
         z-index: 2;
         width: 100%;
         position: absolute;
