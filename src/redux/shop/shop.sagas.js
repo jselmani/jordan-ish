@@ -13,10 +13,15 @@ import {
 import ShopActionTypes from './shop.types';
 import shoes from './shop.data';
 
-export function* fetchAllShoes() {
-    const collectionMap = shoes;
+/**
+ * TODOS:
+ * Create Backend to Fetch Data from
+ * Deploy backend to Heroku or Glitch
+ * Fetch data from backend rather than local array
+ */
 
-    yield put(fetchShoesSuccess(collectionMap));
+export function* fetchAllShoes() {
+    yield put(fetchShoesSuccess(shoes));
 }
 
 export function* fetchAllShoesStart() {
