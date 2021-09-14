@@ -6,6 +6,7 @@ import { selectAllShoes } from '../../redux/shop/shop.selectors';
 
 import './ShopPage.styles.scss';
 import FilterBar from '../../components/FilterBar/FilterBar.component';
+import ShopHeader from '../../components/ShopHeader/ShopHeader.component';
 
 const ShopPage = () => {
     let shoes = useSelector(selectAllShoes);
@@ -17,7 +18,10 @@ const ShopPage = () => {
 
     return (
         <div className="shop-page">
-            <FilterBar />
+            <ShopHeader />
+            <div className="shop-page-content">
+                <FilterBar />
+            </div>
         </div>
     );
 };

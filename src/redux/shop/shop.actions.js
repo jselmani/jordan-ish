@@ -1,5 +1,9 @@
 import ShopActionTypes from './shop.types';
 
+export const toggleFilterBarHidden = () => ({
+    type: ShopActionTypes.TOGGLE_FILTER_BAR_HIDDEN
+});
+
 export const fetchAllShoesStart = () => ({
     type: ShopActionTypes.FETCH_ALL_SHOES_START,
 });
