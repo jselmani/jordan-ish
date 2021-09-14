@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllShoesStart } from '../../redux/shop/shop.actions';
 import { selectAllShoes } from '../../redux/shop/shop.selectors';
 
+import './ShopPage.styles.scss';
+import FilterBar from '../../components/FilterBar/FilterBar.component';
+
 const ShopPage = () => {
-    const shoes = useSelector(selectAllShoes);
+    let shoes = useSelector(selectAllShoes);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -14,9 +17,7 @@ const ShopPage = () => {
 
     return (
         <div className="shop-page">
-            {
-                console.log(shoes)
-            }
+            <FilterBar />
         </div>
     );
 };

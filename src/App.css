@@ -33,7 +33,6 @@ a {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  min-width: 90vw;
   position: relative;
   padding-bottom: 110px;
 }

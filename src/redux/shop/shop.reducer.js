@@ -8,13 +8,7 @@ const INITIAL_STATE = {
 
 const shopReducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case ShopActionTypes.FETCH_ALL_SHOES_START:
-        case ShopActionTypes.FETCH_MENS_SHOES_START:
-        case ShopActionTypes.FETCH_WOMENS_SHOES_START:
-        case ShopActionTypes.FETCH_AJ1_SHOES_START:
-        case ShopActionTypes.FETCH_BBALL_SHOES_START:
-        case ShopActionTypes.FETCH_SNKRS_SHOES_START:
-        case ShopActionTypes.FETCH_CUSTOM_PARAMS_START:    
+        case ShopActionTypes.FETCH_ALL_SHOES_START: 
             return {
                 ...state,
                 isFetching: true

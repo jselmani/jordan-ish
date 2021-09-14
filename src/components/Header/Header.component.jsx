@@ -15,6 +15,9 @@ const Header = () => {
                 <Link className="option" to="/shop">
                     <span>SHOP</span>
                 </Link>
+                <Link className="option" to="/collections">
+                    <span>COLLECTIONS</span>
+                </Link>
                 <Link className="option" to="/">
                     <span>ABOUT</span>
                 </Link>
