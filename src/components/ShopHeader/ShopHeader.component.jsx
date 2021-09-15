@@ -4,10 +4,11 @@ import { IoFilterSharp } from 'react-icons/io5';
 
 import './ShopHeader.styles.scss';
 import { toggleFilterBarHidden } from '../../redux/shop/shop.actions';
+import { selectIsFilterBarHidden } from '../../redux/shop/shop.selectors';
 
 const ShopHeader = () => {
     const dispatch = useDispatch();
-    const isFilterHidden = useSelector(state => state.shop.isFilterBarHidden);
+    const isFilterHidden = useSelector(selectIsFilterBarHidden);
 
     return (
         <div className="shop-header">

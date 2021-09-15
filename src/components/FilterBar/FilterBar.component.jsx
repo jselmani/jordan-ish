@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import './FilterBar.styles.scss';
+import { selectIsFilterBarHidden } from '../../redux/shop/shop.selectors';
 
 const FilterBar = () => {
+    const isFilterHidden = useSelector(selectIsFilterBarHidden);
+    
     return (
-        <div className='filterbar'>
+        <div className={isFilterHidden ? 'filterbar' : 'filterbar active'}>
             <ul className='filterbar-list'>
                 <li className='filterbar-row'>
                     <span className='filterbar-row-title'>PRICE</span>

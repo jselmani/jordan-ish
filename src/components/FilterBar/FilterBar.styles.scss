@@ -5,6 +5,14 @@
     flex-direction: column;
     font-weight: 500;
     text-transform: uppercase;
+    position: fixed;
+    left: -100%;
+    transition: 850ms;
+
+    &.active {
+        left: 0;
+        transition: 350ms;
+    }
 
     .filterbar-list, 
     .filterbar-row-options {
