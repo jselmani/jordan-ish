@@ -2,7 +2,7 @@ import ShopActionTypes from "./shop.types";
 
 const INITIAL_STATE = {
     shoes: null,
-    isFilterBarHidden: false,
+    isFilterBarHidden: true,
     isFetching: false,
     errorMessage: undefined,
 };

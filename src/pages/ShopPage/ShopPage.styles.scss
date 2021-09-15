@@ -3,11 +3,16 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    height: auto;
+    height: 100vh;
 
     .shop-page-content {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
+        width: 100%;
+
+        .product-grid {
+            width: 100%;
+        }
     }
 }

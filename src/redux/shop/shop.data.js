@@ -60,7 +60,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/bb2da15c-2364-4bb6-bf90-4635605eef2e/air-jordan-5-moonlight-release-date.jpg',
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/85f011a7-ab94-43d1-ae0d-b72d6036701d/air-jordan-5-moonlight-release-date.jpg'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 190,
         gender: 'men',
         description: 'Wear these by night and you\'ll be in stealth mode, but if you\'re revealed by the moonlit sky? Your kicks will match what you see above. Sitting below an all-black suede upper and between a white midsole, a black and white speckled shark-tooth design along the midsole resembles the night sky and its stars. An icy outsole completes the look, recalling the sneaker\'s OG place in history—the Air Jordan 5 was the first Jordan Brand signature sneaker to feature a translucent sole.',
@@ -78,7 +78,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/48631df8-41fc-4057-933d-6983eb6ced3a/jordan-flight-club-91-shoe-ZpS5xB.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/45f78f8a-42f6-4224-bfec-908ec47ef348/jordan-flight-club-91-shoe-ZpS5xB.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 170,
         gender: 'unisex',
         description: 'The Jordan Flight Club \'91 has a design that throws back to basketball\'s golden age and the sneakers that reigned supreme. The Air Jordan 6 is the muse, with visible Air cushioning, cut-outs in the collar and a windowed tongue reminiscent of MJ\'s classic game shoe. The 91 has a structured frame of genuine and synthetic leather containing an inner bootie, providing a snug and secure fit.',
@@ -246,7 +246,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5e5f8914-80fd-47c6-9e04-d800924b9ec6/air-jordan-1-mid-se-shoes-dkgqwK.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/7f9e70d7-1252-45ec-89ba-64841303f920/air-jordan-1-mid-se-shoes-dkgqwK.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 170,
         gender: 'unisex',
         description: 'Washed denim and suede make this classic Air Jordan 1 Mid SE tough to beat.The materials are inspired by the rugged look and texture of workwear.',
@@ -289,7 +289,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/2eb71929-c4c3-479e-8bbe-ed1721ee0da5/air-jordan-1-mid-shoes-lpJv2q.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/43fef183-c400-4ab7-a878-11b92c9271d8/air-jordan-1-mid-shoes-lpJv2q.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 145,
         gender: 'men',
         description: 'Play like it\'s \'85.The Air Jordan 1 Mid Refresh hits with vibrant orange colour accents and premium comfort. Its encapsulated Air-Sole unit cushions your foot, while the padded collar gives you a supportive feel on the move.',
@@ -332,7 +332,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/61e6848f-98f1-4742-aa11-0ff7a20e0f90/air-jordan-3-retro-racer-blue-release-date.jpg',
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/542927fd-3678-45c8-b90b-45f35d29550c/air-jordan-3-retro-racer-blue-release-date.jpg'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 165,
         gender: 'unisex',
         description: 'The Air Jordan 3 is one of the most timeless silhouettes around the world and with this colourway, its legacy is furthered by combining classic elements with fresh colours and features. A white tumbled leather upper with elephant print on the forefoot and heel counter recalls classic Air Jordan 3 style, but there\'s a small twist: this elephant print is actually reflective-design 3M, allowing the silhouette to shine brighter even when it\'s dark out. A Racer Blue accent energises and punctuates this Air Jordan 3\'s aesthetic with a sporty feel meant for summertime stylings.',
@@ -350,7 +350,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5cca641f-89d7-4c65-a3a6-254801993530/jordan-zoom-92-shoes-31zKhf.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/07f44a25-a21f-4f39-947b-be3713578b79/jordan-zoom-92-shoes-31zKhf.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 195,
         gender: 'men',
         description: 'A nod to \'90s basketball shoes, the Jordan Zoom \'92 focuses on comfort while tapping into the irreverent spirit of that era\'s designs.A stretchy-fit sleeve and underfoot cushioning offer a comfortable fit. \'90s-inspired details give the shoe its retro flavour.',
@@ -368,7 +368,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/786b7413-917b-49a7-ac40-18d910295f46/jordan-one-take-ii-basketball-shoe-k4Ql69.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/3e73c22c-7131-4704-a1ed-281043ebe6f2/jordan-one-take-ii-basketball-shoe-k4Ql69.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 135,
         gender: 'unisex',
         description: 'Russell Westbrook backs up his brashness with a fast, aggressive playing style and numbers that place him among the league\'s best. His all-new Jordan One Take II embodies his edginess and speed. Colours, textures and design lines speak to Russ\' persona both on and off the court.',
@@ -461,7 +461,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/899b01ad-fca2-4852-bd9c-2085d9b83390/jordan-ma2-lunar-launch-shoe-QHW5LG.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/18f07cee-b53a-404d-ab57-89a8418cc0bb/jordan-ma2-lunar-launch-shoe-QHW5LG.png'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 170,
         gender: 'women',
         description: 'Go beyond in the Jordan MA2 \'Lunar Launch\'. A testament to our unlimited potential as athletes*, this colourway celebrates personal growth with a mix of suede, leather and textiles that balance the new and the classic. Easy to get on and off, it\'s a fresh symbol of Jordan attitude and innovation.',
@@ -504,7 +504,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/fab94ccb-4a35-46a8-8848-e07726c14fb3/women-s-air-jordan-14-low-red-lipstick-release-date.jpg',
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/c0ef2351-d99d-4e54-8fa4-66acb9e7e3a8/women-s-air-jordan-14-low-red-lipstick-release-date.jpg'
         ],
-        secondaryImages: [],
+        secondaryImages: null,
         price: 225,
         gender: 'women',
         description: 'Everyone loves the perfect shade of red. Symbolising strength, passion and love, wherever you see red, you can feel the natural confidence the colour expresses. For this Air Jordan 14 Low \'Red Lipstick\', a premium Black matte leather upper sets the stage for a sharp Gym Red lining, creating an unabashed and bold look. To top it all off, Metallic Platinum lace aglets add a tasteful touch of luxury to the design.',
