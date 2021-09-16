@@ -4,7 +4,7 @@
     margin-bottom: 15px;
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     .logo-container {
         width: 125px;
@@ -19,6 +19,7 @@
     .options {
         width: 100%;
         height: 100%;
+        max-width: 1150px;
         display: flex;
         flex-direction: row;
         align-items: center;

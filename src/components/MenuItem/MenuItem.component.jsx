@@ -3,13 +3,13 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 
 import './MenuItem.styles.scss';
 
-const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
+const MenuItem = ({ title, imageUrl, linkUrl }) => {
     const history = useHistory();
     const match = useRouteMatch();
     
     return (
         <div 
-            className={`${size} menu-item`}
+            className="menu-item"
             onClick={() => history.push(`${match.url}${linkUrl}`)}
         >
             <div 

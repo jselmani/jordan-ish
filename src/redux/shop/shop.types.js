@@ -1,0 +1,7 @@
+const ShopActionTypes = {
+    FETCH_ALL_SHOES_START: 'FETCH_ALL_SHOES_START',
+    FETCH_SHOES_SUCCESS: 'FETCH_SHOES_SUCCESS',
+    FETCH_SHOES_FAILURE: 'FETCH_SHOES_FAILURE'
+};
+
+export default ShopActionTypes;

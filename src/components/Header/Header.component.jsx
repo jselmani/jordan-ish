@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import jordanLogo from '../../images/jordan-logo.png';
 
@@ -7,16 +8,16 @@ import './Header.styles.scss';
 const Header = () => {
     return (
         <div className="header">
-            <div className="logo-container">
+            <Link className="logo-container" to="/">
                 <img src={jordanLogo} alt="jordan logo" />
-            </div>
+            </Link>
             <div className="options">
-                <div className="option">
+                <Link className="option" to="/shop">
                     <span>SHOP</span>
-                </div>
-                <div className="option">
+                </Link>
+                <Link className="option" to="/">
                     <span>ABOUT</span>
-                </div>
+                </Link>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 .menu-item {
-    min-width: 30%;
+    width: 30vw;
     height: 300px;
-    flex: 1 1 auto;
+    flex: 1 1 33.3%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,11 +22,6 @@
             transform: scale(0.9);
             transition: transform 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
         }
-    }
-
-    &.large {
-        height: 450px;
-        width: 40vw;
     }
 
     &:first-child {
