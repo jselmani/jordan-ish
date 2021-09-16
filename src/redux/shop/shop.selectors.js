@@ -1,16 +1,10 @@
 import { createSelector } from "reselect";
 
 const selectShoes = state => state.shop.shoes;
-const selectFilterBarState = state => state.shop.isFilterBarHidden;
 
 export const selectAllShoes = createSelector(
     selectShoes,
-    shoes => shoes
-);
-
-export const selectIsFilterBarHidden = createSelector(
-    selectFilterBarState,
-    isFilterBarHidden => isFilterBarHidden
+    shoes => shoes ? shoes : []
 );
 
 export const selectMensShoes = createSelector(

@@ -4,14 +4,12 @@ const INITIAL_STATE = {
             title: 'Men\'s',
             imageUrl: 'https://static.nike.com/a/images/f_auto/dpr_1.0/h_700,c_limit/deeac6ea-6328-4c1a-a583-9656c45be3e6/jordan-basketball.jpg',
             id: 1,
-            size: 'large',
             linkUrl: 'shop?collection=mens'
         },
         {
             title: 'Women\'s',
             imageUrl: 'https://static.nike.com/a/images/f_auto/dpr_1.0/w_578,c_limit/90fe2a68-8d46-4d7b-ae78-a022efb637b2/jordan-basketball.jpg',
             id: 2,
-            size: 'large',
             linkUrl: 'shop?collection=womens'
         },
         {
