@@ -1,17 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-
-import { selectAllShoes } from '../../redux/shop/shop.selectors';
+import { Route, useRouteMatch } from 'react-router-dom';
 
 import './ShopPage.styles.scss';
-import ProductGrid from '../../components/ProductGrid/ProductGrid.component';
+import CollectionsOverview from '../../components/CollectionsOverview/CollectionsOverview.component';
 
 const ShopPage = () => {
-    let shoes = useSelector(selectAllShoes);
+    const match = useRouteMatch();
 
     return (
         <div className="shop-page">
-            <ProductGrid shoes={shoes} />
+            <Route exact path={`${match.path}`} component={CollectionsOverview} />
         </div>
     );
 };
