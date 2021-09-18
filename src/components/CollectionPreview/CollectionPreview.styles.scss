@@ -1,0 +1,32 @@
+.collection-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 15px;
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .preview {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        @media (min-width: 10rem) {
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 35rem) {
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        @media (min-width: 56rem) {
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+        }
+    }
+}
