@@ -1,25 +1,13 @@
-.collection-preview {
+.collection-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 15px;
 
     .title {
         font-size: 28px;
-        margin-bottom: 15px;
-
-        @media (min-width: 10rem) {
-            display: flex;
-            justify-content: center;
-        }
-
-        @media (min-width: 35rem) {
-            justify-content: flex-start;
-        }
+        margin: 0 auto 30px;
     }
 
-    .preview {
+    .products {
         display: flex;
         justify-content: center;
         align-content: center;
@@ -29,12 +17,10 @@
         }
 
         @media (min-width: 35rem) {
-            flex-wrap: wrap;
             justify-content: space-evenly;
         }
 
         @media (min-width: 56rem) {
-            flex-wrap: nowrap;
             justify-content: space-evenly;
         }
     }

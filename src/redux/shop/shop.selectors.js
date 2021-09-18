@@ -56,6 +56,23 @@ export const selectCollectionsForPreview = createSelector(
     }
 );
 
+export const selectCollection = collectionUrlParam => {
+    switch(collectionUrlParam) {
+        case 'mens':
+            return selectMensShoesWithUnisex;
+        case 'womens':
+            return selectWomensShoesWithUnisex;
+        case 'air-jordan-1':
+            return selectAirJordan1Shoes;
+        case 'basketball':
+            return selectBasketballShoes;
+        case 'SNKRS':
+            return selectSNKRSShoes;
+        default:
+            return selectAllShoes;
+    }
+}
+
 export const selectAreShoesFetching = createSelector(
     selectShoes,
     shoes => shoes.isFetching
