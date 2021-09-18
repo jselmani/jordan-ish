@@ -1,16 +1,18 @@
 .collection-page {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .title {
         font-size: 28px;
-        margin: 0 auto 30px;
+        display: flex;
     }
 
     .products {
         display: flex;
         justify-content: center;
         align-content: center;
+        box-sizing: border-box;
 
         @media (min-width: 10rem) {
             flex-wrap: wrap;
