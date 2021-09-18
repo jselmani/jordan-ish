@@ -1,40 +1,28 @@
-.collection-preview {
+.collection-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 15px;
+    width: 100%;
 
     .title {
         font-size: 28px;
-        margin-bottom: 15px;
-
-        @media (min-width: 10rem) {
-            display: flex;
-            justify-content: center;
-        }
-
-        @media (min-width: 35rem) {
-            justify-content: flex-start;
-        }
+        display: flex;
     }
 
-    .preview {
+    .products {
         display: flex;
         justify-content: center;
         align-content: center;
+        box-sizing: border-box;
 
         @media (min-width: 10rem) {
             flex-wrap: wrap;
         }
 
         @media (min-width: 35rem) {
-            flex-wrap: wrap;
             justify-content: space-evenly;
         }
 
         @media (min-width: 56rem) {
-            flex-wrap: nowrap;
             justify-content: space-evenly;
         }
     }
