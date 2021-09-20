@@ -71,7 +71,7 @@ export const selectCollection = collectionUrlParam => {
         default:
             return selectAllShoes;
     }
-}
+};
 
 export const selectAreShoesFetching = createSelector(
     selectShoes,
@@ -79,6 +79,6 @@ export const selectAreShoesFetching = createSelector(
 );
 
 export const selectAreShoesLoaded = createSelector(
-    [selectShoes],
+    selectShoes,
     shoes => !!shoes
 );
