@@ -73,6 +73,11 @@ export const selectCollection = collectionUrlParam => {
     }
 };
 
+export const selectShoeById = shoeId => createSelector(
+    selectAllShoes,
+    shoes => shoes ? shoes[shoeId - 1] : null
+);
+
 export const selectAreShoesFetching = createSelector(
     selectShoes,
     shoes => shoes.isFetching
