@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './ProductPage.styles.scss';
+import './SingleProductPage.styles.scss';
 
-const ProductPage = () => {
+const SingleProductPage = () => {
     return (
         <div className="product-page">
             Hello
@@ -10,4 +10,4 @@ const ProductPage = () => {
     );
 };
 
-export default ProductPage;
+export default SingleProductPage;

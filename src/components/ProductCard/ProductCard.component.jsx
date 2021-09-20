@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 
 import './ProductCard.styles.scss';
 
-const ProductCard = ({ gender, name, price, primaryImages, secondaryImages, tag, type }) => {
+const ProductCard = (props) => {
     const [isVisible, setIsVisible] = useState(false);
-
+    const { gender, name, price, primaryImages, secondaryImages, tag, type, routeToProduct } = props;
+    
     return (
         <div 
             className="product-card" 
             onMouseEnter={() => setIsVisible(true)}
             onMouseLeave={() => setIsVisible(false)}
+            onClick={routeToProduct}
         >
             <img className="primary-image" src={primaryImages[0]} alt={name} />
             {

@@ -19,7 +19,13 @@ const CollectionPreview = ({ title, collection }) => {
                     collection
                         .filter((product, index) => index < 4)
                         .map((product) => {
-                            return <ProductCard key={product.id} {...product} />
+                            return (
+                                <ProductCard 
+                                    key={product.id}
+                                    routeToProduct={() => history.push(`products/${product.id}`)}
+                                    {...product} 
+                                />
+                            )
                         })
                 }
             </div>
