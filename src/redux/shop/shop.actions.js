@@ -1,7 +1,7 @@
 import ShopActionTypes from './shop.types';
 
 export const fetchAllShoesStart = () => ({
-    type: ShopActionTypes.FETCH_ALL_SHOES_START,
+    type: ShopActionTypes.FETCH_ALL_SHOES_START
 });
 
 export const fetchShoesSuccess = collectionMap => ({
@@ -11,5 +11,20 @@ export const fetchShoesSuccess = collectionMap => ({
 
 export const fetchShoesFailure = errorMessage => ({
     type: ShopActionTypes.FETCH_SHOES_FAILURE,
+    payload: errorMessage
+});
+
+export const fetchShoeByIdStart = id => ({
+    type: ShopActionTypes.FETCH_SHOE_BY_ID_START,
+    id
+});
+
+export const fetchShoeByIdSuccess = shoe => ({
+    type: ShopActionTypes.FETCH_SHOE_BY_ID_SUCCESS,
+    payload: shoe
+});
+
+export const fetchShoeByIdFailure = errorMessage => ({
+    type: ShopActionTypes.FETCH_SHOE_BY_ID_FAILURE,
     payload: errorMessage
 });

@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 
 const selectShoes = state => state.shop.shoes;
+const selectShoe = state => state.shop.shoe;
 
 export const selectAllShoes = createSelector(
     selectShoes,
@@ -77,6 +78,17 @@ export const selectShoeById = shoeId => createSelector(
     selectAllShoes,
     shoes => shoes ? shoes[shoeId - 1] : null
 );
+
+/**
+ * TODO:
+ * Create HOC to use isFetching state so ProductDetailsPage is
+ * available on page refresh without throwing an error and then use
+ * the selector below.
+ */
+// export const selectShoeById = () => createSelector(
+//     selectShoe,
+//     shoe => shoe ? shoe : null
+// );
 
 export const selectAreShoesFetching = createSelector(
     selectShoes,

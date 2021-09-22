@@ -1,0 +1,28 @@
+.product-details-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    max-width: 1150px;
+
+    .product-title {
+
+    }
+
+    .product-info {
+        display: flex;
+
+        .product-images-container {
+            height: auto;
+            width: 50%;
+            display: flex;
+            margin: 5px;
+
+            .primary-image {
+                max-width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

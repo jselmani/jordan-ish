@@ -11,7 +11,7 @@ import Header from './components/Header/Header.component';
 import Footer from './components/Footer/Footer.component';
 
 import { fetchAllShoesStart } from './redux/shop/shop.actions';
-import SingleProductPage from './pages/SingleProductPage/SingleProductPage.component';
+import ProductDetailsPage from './pages/ProductDetailsPage/ProductDetailsPage.component';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const App = () => {
       <Switch>
         <Route exact={true} path='/' component={ HomePage } />
         <Route path='/shop' component={ ShopPage } />
-        <Route path='/products/:productId' component={ SingleProductPage } />
+        <Route path='/products/:productId' component={ ProductDetailsPage } />
       </Switch>
       <Footer />
     </div>
