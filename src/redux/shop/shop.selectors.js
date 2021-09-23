@@ -67,7 +67,7 @@ export const selectCollection = collectionUrlParam => {
             return selectAirJordan1Shoes;
         case 'basketball':
             return selectBasketballShoes;
-        case 'SNKRS':
+        case 'snkrs':
             return selectSNKRSShoes;
         default:
             return selectAllShoes;

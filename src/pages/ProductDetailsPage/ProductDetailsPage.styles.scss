@@ -6,22 +6,81 @@
     height: 100%;
     max-width: 1150px;
 
-    .product-title {
-
-    }
-
     .product-info {
         display: flex;
+        width: 100%;
 
         .product-images-container {
             height: auto;
-            width: 50%;
-            display: flex;
-            margin: 5px;
+            width: 100%;
+            flex: 1.5;
 
-            .primary-image {
+            .primary-image,
+            .secondary-image {
                 max-width: 100%;
                 object-fit: cover;
+            }
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            margin-left: 1.5rem;
+
+            .product-options {
+                width: 100%;
+                display: flex;
+
+                .product-option {
+                    margin-bottom: 1rem;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    img {
+                        height: auto;
+                        width: 100px;
+                    }
+
+                    .selected {
+                        border: 1px solid black;
+                    }
+
+                    &:nth-child(2) {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+
+            .product-price,
+            .product-gender,
+            .product-tag {
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            .product-tag {
+                margin-top: 0.5rem;
+            }
+
+            .shoe-size-container {
+                width: 100%;
+                margin-top: 1.5rem;
+
+                .shoe-size-title {
+                    font-size: 18px;
+                }
+            }
+
+            .product-buttons {
+
+            }
+
+            .product-description {
+                margin-top: 1rem;
             }
         }
     }

@@ -28,7 +28,7 @@ const INITIAL_STATE = {
             title: 'SNKRS',
             imageUrl: 'https://static.nike.com/a/images/w_960,c_limit,f_auto/v207qztgzqp2a5bwxvru/air-jordan-3-retro-og-white-cement-grey-blue.jpg',
             id: 5,
-            linkUrl: 'shop/SNKRS'
+            linkUrl: 'shop/snkrs'
         }
     ]
 };

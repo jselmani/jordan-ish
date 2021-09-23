@@ -14,7 +14,7 @@ const CollectionPage = () => {
 
     return (
         <div className="collection-page">
-            <h1 className="title">{ title }</h1>
+            <h1 className="title">{ title } | { collection.length }</h1>
             <div className="products">
                 {
                     collection.map(product => {
