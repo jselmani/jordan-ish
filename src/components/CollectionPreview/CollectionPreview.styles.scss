@@ -13,15 +13,6 @@
             cursor: pointer;
             color: #444444;
         }
-
-        @media (min-width: 10rem) {
-            display: flex;
-            justify-content: center;
-        }
-
-        @media (min-width: 35rem) {
-            justify-content: flex-start;
-        }
     }
 
     .preview {

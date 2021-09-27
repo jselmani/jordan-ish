@@ -22,7 +22,22 @@ const shoes = [
         gender: 'men',
         description: 'The Jordan Point Lane mixes elements from game shoes MJ wore during 3 of his most memorable seasons. Named for his Chicago address, this mash-up pulls in bits and pieces from the AJ3, AJ6 and AJ11 to create a shoe that\'s inspired by greatness and uncompromising in its comfort.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 2,
@@ -47,7 +62,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Shatter the sneaker status quo in the Jordan MA2. Made with a mix of suede, full-grain leather and a variety of textiles, it\'s got unconventional labels, technical micro-graphics and raw foam edges for a balance of new and classic. Easy to get on and off, it wears with just about anything.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 3,
@@ -65,7 +95,22 @@ const shoes = [
         gender: 'men',
         description: 'Wear these by night and you\'ll be in stealth mode, but if you\'re revealed by the moonlit sky? Your kicks will match what you see above. Sitting below an all-black suede upper and between a white midsole, a black and white speckled shark-tooth design along the midsole resembles the night sky and its stars. An icy outsole completes the look, recalling the sneaker\'s OG place in history—the Air Jordan 5 was the first Jordan Brand signature sneaker to feature a translucent sole.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 4,
@@ -83,7 +128,22 @@ const shoes = [
         gender: 'unisex',
         description: 'The Jordan Flight Club \'91 has a design that throws back to basketball\'s golden age and the sneakers that reigned supreme. The Air Jordan 6 is the muse, with visible Air cushioning, cut-outs in the collar and a windowed tongue reminiscent of MJ\'s classic game shoe. The 91 has a structured frame of genuine and synthetic leather containing an inner bootie, providing a snug and secure fit.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 5,
@@ -108,7 +168,22 @@ const shoes = [
         gender: 'men',
         description: 'Get your piece of Jordan history and heritage in the Jordan Max Aura 3. Inspired by the brand\'s rich legacy of performance basketball, it has the energy of a game shoe and a design that puts a fresh spin on classic details.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 6,
@@ -133,7 +208,22 @@ const shoes = [
         gender: 'men',
         description: 'The Air Jordan 11 CMFT Low looks to the future of flight with comfort in mind. The soft leather toe cap and mudguard and webbing lace loops replicate distinct features from the original AJ11. Soft, smooth Cushlon foam and Zoom Air cushioning make every step comfortable.',
         tag: 'Nike Zoom Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 7,
@@ -158,7 +248,22 @@ const shoes = [
         gender: 'unisex',
         description: 'With a down-to-earth persona and abilities that are out of this world, Zion is unlike anybody else. On court, the gentle spirit who\'s all about family transforms into an unmatched force of unstoppable athleticism and speed. The Zion 1 kicks off his signature line with a design inspired by his duality of humility meets superhuman ability. Full-length Air Strobel cushioning is stacked with a Zoom Air unit in the forefoot—a sensational mix of plush underfoot comfort and rapid responsiveness. It\'s light, stable and strong, with aggressive traction to help Zion grip the court and control his power.',
         tag: 'Nike Zoom Air',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 8,
@@ -183,7 +288,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Speed is Russell Westbrook’s not-so-secret weapon. He out-hustles the competition, building momentum and muscling his way onto the highlight reel. Cue the Jordan \'Why Not?\' Zer0.4, the first to feature double-stacked Zoom in the forefoot. It\'s an extra-responsive cushioning system that\'s designed to help him transform his speed into force and focus his attack.',
         tag: 'Nike Zoom Air',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 9,
@@ -208,7 +328,22 @@ const shoes = [
         gender: 'men',
         description: 'The Jordan Delta 2 offers a fresh, fearless take on the features you want: durability, comfort and an attitude that\'s Jordan to the core. This special "3D" Jordan Delta 2 takes a wabi sabi design approach by charting a minimalist, imperfect path to the upper\'s scaled back look, making it feel both high-tech and handcrafted. The rubber heel clip, however, is anything but scaled back, using multi-layered overlapping translucent films to create a 3D effect that compliments the upper. And check this out: Look closely at the side of the sneaker too for a hidden morse code message for you to decode.',
         tag: 'Nike React',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 10,
@@ -233,7 +368,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Since 1985, Jordan Brand has always done things that have never been seen before. Almost forty years later, Jordan continues to bring new light to the game with international athletes that are redefining the blueprint once again. Beaming with talent, it’s about the shine within that makes the new faces of the game radiant on the court. Drawing inspiration from ultraviolet rays, the Air Jordan XXXVI celebrates the future of Jordan, the ones who will brighten the way for the next generation of global superstars all across the world.',
         tag: 'Nike Lunarlon',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 11,
@@ -251,7 +401,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Washed denim and suede make this classic Air Jordan 1 Mid SE tough to beat.The materials are inspired by the rugged look and texture of workwear.',
         tag: 'Nike Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 12,
@@ -276,7 +441,22 @@ const shoes = [
         gender: 'unisex',
         description: 'The Air Jordan 1 Mid Shoe is inspired by the first AJ1, offering fans of Jordan retros a chance to follow in the footsteps of greatness.Fresh colour trims the clean, classic materials, injecting some newness into the familiar design.',
         tag: 'Nike Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 13,
@@ -294,7 +474,22 @@ const shoes = [
         gender: 'men',
         description: 'Play like it\'s \'85.The Air Jordan 1 Mid Refresh hits with vibrant orange colour accents and premium comfort. Its encapsulated Air-Sole unit cushions your foot, while the padded collar gives you a supportive feel on the move.',
         tag: 'Nike Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 14,
@@ -319,7 +514,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Inspired by the original that debuted in 1985, the Air Jordan 1 Low offers a clean, classic look that\'s familiar yet always fresh. It\'s made for casual mode, with an iconic design that goes with everything and never goes out of style.',
         tag: 'Nike Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 15,
@@ -337,7 +547,22 @@ const shoes = [
         gender: 'unisex',
         description: 'The Air Jordan 3 is one of the most timeless silhouettes around the world and with this colourway, its legacy is furthered by combining classic elements with fresh colours and features. A white tumbled leather upper with elephant print on the forefoot and heel counter recalls classic Air Jordan 3 style, but there\'s a small twist: this elephant print is actually reflective-design 3M, allowing the silhouette to shine brighter even when it\'s dark out. A Racer Blue accent energises and punctuates this Air Jordan 3\'s aesthetic with a sporty feel meant for summertime stylings.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 16,
@@ -355,7 +580,22 @@ const shoes = [
         gender: 'men',
         description: 'A nod to \'90s basketball shoes, the Jordan Zoom \'92 focuses on comfort while tapping into the irreverent spirit of that era\'s designs.A stretchy-fit sleeve and underfoot cushioning offer a comfortable fit. \'90s-inspired details give the shoe its retro flavour.',
         tag: 'Nike Zoom Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 17,
@@ -373,7 +613,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Russell Westbrook backs up his brashness with a fast, aggressive playing style and numbers that place him among the league\'s best. His all-new Jordan One Take II embodies his edginess and speed. Colours, textures and design lines speak to Russ\' persona both on and off the court.',
         tag: 'Nike Zoom Air',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 18,
@@ -398,7 +653,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Like those that came before it, the Air Jordan XXXV continues to push the limits of what\'s possible in a basketball sneaker. Building upon the design of the XXXIV, the debut XXXV colourway is a nod to the original Air Jordan 5 on its 30th anniversary. Helping to centre your gravity when you\'re on the court and defy it when you take flight, the AJXXXV represents what it takes to control the game.',
         tag: 'Nike Zoom Air',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 19,
@@ -423,7 +693,22 @@ const shoes = [
         gender: 'unisex',
         description: 'Basketball players create separation by cutting quicker, running faster and jumping higher than the competition. The ultra-lightweight Air Jordan XXXV Low helps transform your speed and power into linear and vertical separation. Similar to the inline game shoe, it uses a sculpted and stable midsole that\'s loaded with visible, large-volume Zoom Air units to help you exploit the space you create. The lower collar height allows ankle mobility while keeping you fully and comfortably contained.',
         tag: 'Nike Zoom Air',
-        type: 'basketball'
+        type: 'basketball',
+        sizes: [
+            'M 7 / W 8.5',
+            'M 7.5 / W 9',
+            'M 8 / W 9.5',
+            'M 8.5 / W 10',
+            'M 9 / W 10.5',
+            'M 9.5 / W 11',
+            'M 10 / W 11.5',
+            'M 10.5 / W 12',
+            'M 11 / W 12.5',
+            'M 11.5 / W 13',
+            'M 12 / W 13.5',
+            'M 12.5 / W 14',
+            'M 13 / W 14.5'
+        ] 
     },
     {
         id: 20,
@@ -448,7 +733,22 @@ const shoes = [
         gender: 'women',
         description: 'Step into comfort with the Air Jordan 1 Zoom Air Comfort. Refined to make one of history\'s most iconic sneakers more wearable, it combines full-grain leather in the upper with a cosy lining and responsive cushioning.',
         tag: 'Nike Zoom Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 21,
@@ -466,7 +766,22 @@ const shoes = [
         gender: 'women',
         description: 'Go beyond in the Jordan MA2 \'Lunar Launch\'. A testament to our unlimited potential as athletes*, this colourway celebrates personal growth with a mix of suede, leather and textiles that balance the new and the classic. Easy to get on and off, it\'s a fresh symbol of Jordan attitude and innovation.',
         tag: 'Nike Max Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 22,
@@ -491,7 +806,22 @@ const shoes = [
         gender: 'women',
         description: 'The Air Jordan 1 Mid brings full-court style and premium comfort to an iconic look. Its Air-Sole unit cushions play on the hardwood, while the padded collar gives you a supportive feel.',
         tag: 'Nike Air',
-        type: 'air-jordan-1'
+        type: 'air-jordan-1',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
     {
         id: 23,
@@ -509,7 +839,22 @@ const shoes = [
         gender: 'women',
         description: 'Everyone loves the perfect shade of red. Symbolising strength, passion and love, wherever you see red, you can feel the natural confidence the colour expresses. For this Air Jordan 14 Low \'Red Lipstick\', a premium Black matte leather upper sets the stage for a sharp Gym Red lining, creating an unabashed and bold look. To top it all off, Metallic Platinum lace aglets add a tasteful touch of luxury to the design.',
         tag: 'Nike Air',
-        type: 'SNKRS'
+        type: 'SNKRS',
+        sizes: [
+            '7', 
+            '7.5', 
+            '8',
+            '8.5', 
+            '9',
+            '9.5', 
+            '10',
+            '10.5', 
+            '11',
+            '11.5', 
+            '12',
+            '12.5', 
+            '13',
+        ]
     },
 ]
 
