@@ -1,0 +1,33 @@
+.product-image-carousel {
+    height: auto;
+    width: 100%;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: black;
+    }
+
+    .swiper-slide-thumb-active {
+        img {
+            border: 1px solid black;
+        }
+    }
+
+    .large-product-image {
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .thumb-product-image {
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        object-fit: contain;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

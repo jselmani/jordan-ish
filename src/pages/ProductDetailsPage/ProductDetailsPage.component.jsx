@@ -3,16 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import './ProductDetailsPage.styles.scss';
+import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
 
-// // Swiper
-// import SwiperCore, { Navigation, Pagination } from 'swiper';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/swiper.scss';
-// import 'swiper/components/navigation/navigation.scss';
-// import 'swiper/components/pagination/pagination.scss';
-// SwiperCore.use([Navigation, Pagination]);
+
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -37,8 +32,8 @@ const ProductDetailsPage = () => {
                     {
                         // TODO: Create Carousel reusable component using SwiperJS 
                         isPrimary ?
-                        <img className="primary-image" src={primaryImages[0]} alt={name} />
-                        : <img className="secondary-image" src={secondaryImages[0]} alt={name} />
+                        <ProductImageCarousel className="primary-image" images={primaryImages} />
+                        : <ProductImageCarousel className="secondary-image" images={secondaryImages} />
                     }
                 </div>
                 <div className="product-details">
