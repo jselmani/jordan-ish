@@ -7,21 +7,21 @@ import ProductImageCarousel from '../../components/ProductImageCarousel/ProductI
 import CustomButton from '../../components/CustomButton/CustomButton.component';
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
-
-
+import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const { productId }  = useParams();
 
     const [isPrimary, setIsPrimary] = useState(true);
+    const [shoeSize, setShoeSize] = useState(null);
+
+    const shoe = useSelector(selectShoeById(productId));
+    const { description, name, price, primaryImages, secondaryImages, tag, gender, sizes } = shoe;
 
     useEffect(() => {
         dispatch(fetchShoeByIdStart(productId));
     }, [dispatch, productId]);
-
-    const shoe = useSelector(selectShoeById(productId));
-    const { description, name, price, primaryImages, secondaryImages, tag, gender, sizes } = shoe;
 
     return (
         <div className="product-details-page">
@@ -57,23 +57,40 @@ const ProductDetailsPage = () => {
                     }
                     <span className="product-price .product-gender">${ price } | { gender.toUpperCase() }</span>
                     <span className="product-tag">{ tag.toUpperCase() }</span>
-                    <div className="shoe-size-container">
-                        <span className="shoe-size-title">Select Size</span>
-                        <span className="shoe-size-options">
-                            {
-                                // TODO: Create reusable radio button component to handle size selection
-                            }
-                        </span>
-                    </div>
-                    <div className="product-description">{ description }</div>
-                    <div className="product-buttons">
-                        <CustomButton onClick={() => console.log('Add to cart')}>
-                            <h3>ADD TO CART</h3>
-                        </CustomButton>
-                        <CustomButton onClick={() => console.log('Add to favourites')} inverted>
-                            <h3>ADD TO FAVOURITES</h3>
-                        </CustomButton>
-                    </div>
+                    <form className="product-add-to-cart-form">
+                        <div className="shoe-size-container">
+                            <span className="shoe-size-title">Select Size</span>
+                            <div className="shoe-size-options">
+                                { 
+                                    sizes.map((size, index) => {
+                                        return (
+                                            <div 
+                                                className="shoe-size-option" 
+                                                key={index} 
+                                                onClick={() => setShoeSize(size)}
+                                            >
+                                                <CustomRadioButton 
+                                                    key={index} 
+                                                    size={size} 
+                                                    checked={shoeSize === size} 
+                                                    onChange={() => {}} 
+                                                />   
+                                            </div>
+                                        )
+                                    }) 
+                                }
+                            </div>
+                        </div>
+                        <div className="product-description">{ description }</div>
+                        <div className="product-buttons">
+                            <CustomButton onClick={() => console.log('Add to cart')}>
+                                <h3>ADD TO BAG</h3>
+                            </CustomButton>
+                            <CustomButton onClick={() => console.log('Add to favourites')} inverted>
+                                <h3>ADD TO FAVOURITES</h3>
+                            </CustomButton>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

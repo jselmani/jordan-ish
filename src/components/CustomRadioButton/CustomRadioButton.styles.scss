@@ -1,0 +1,40 @@
+.custom-radio-button {
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgrey;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    margin: 2px 0;
+
+    &.selected {
+        background-color: black;
+        color: white;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid black;
+    }
+
+    input[type='radio'] {
+        display: none;
+        margin-left: 100%;
+        margin-right: 100%;
+    }
+
+    label {
+        display: block;
+        padding: 0.15rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .custom-radio-button input[type='radio']:checked {
+        border: 1px solid black;
+    }
+}
