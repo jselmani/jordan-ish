@@ -32,7 +32,7 @@ const ProductImageCarousel = ({ images }) => {
                 className="thumb-product-images"
                 onSwiper={setThumbsSwiper}
                 spaceBetween={10}
-                slidesPerView={6}
+                slidesPerView={5}
                 freeMode={true}
             >
                 {

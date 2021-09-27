@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import './ProductDetailsPage.styles.scss';
 import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
+import CustomButton from '../../components/CustomButton/CustomButton.component';
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
 
@@ -30,7 +31,6 @@ const ProductDetailsPage = () => {
             <div className="product-info">
                 <div className="product-images-container">
                     {
-                        // TODO: Create Carousel reusable component using SwiperJS 
                         isPrimary ?
                         <ProductImageCarousel className="primary-image" images={primaryImages} />
                         : <ProductImageCarousel className="secondary-image" images={secondaryImages} />
@@ -65,10 +65,15 @@ const ProductDetailsPage = () => {
                             }
                         </span>
                     </div>
-                    <div className="product-buttons">
-
-                    </div>
                     <div className="product-description">{ description }</div>
+                    <div className="product-buttons">
+                        <CustomButton onClick={() => console.log('Add to cart')}>
+                            <h3>ADD TO CART</h3>
+                        </CustomButton>
+                        <CustomButton onClick={() => console.log('Add to favourites')} inverted>
+                            <h3>ADD TO FAVOURITES</h3>
+                        </CustomButton>
+                    </div>
                 </div>
             </div>
         </div>
