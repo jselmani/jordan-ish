@@ -23,6 +23,11 @@ const ProductDetailsPage = () => {
         dispatch(fetchShoeByIdStart(productId));
     }, [dispatch, productId]);
 
+    const handleSubmit = async event => {
+        event.preventDefault();
+        // add logic here
+    }
+
     return (
         <div className="product-details-page">
             <div className="product-title">
@@ -37,6 +42,7 @@ const ProductDetailsPage = () => {
                     }
                 </div>
                 <div className="product-details">
+                <h2 className="product-option-title">PRODUCT DETAILS</h2>
                     {
                         secondaryImages ?
                             <div className="product-options">
@@ -57,7 +63,7 @@ const ProductDetailsPage = () => {
                     }
                     <span className="product-price .product-gender">${ price } | { gender.toUpperCase() }</span>
                     <span className="product-tag">{ tag.toUpperCase() }</span>
-                    <form className="product-add-to-cart-form">
+                    <form onSubmit={handleSubmit} className="product-add-to-cart-form">
                         <div className="shoe-size-container">
                             <span className="shoe-size-title">Select Size</span>
                             <div className="shoe-size-options">
@@ -82,15 +88,15 @@ const ProductDetailsPage = () => {
                             </div>
                         </div>
                         <div className="product-description">{ description }</div>
-                        <div className="product-buttons">
+                    </form>
+                    <div className="product-buttons">
                             <CustomButton onClick={() => console.log('Add to cart')}>
                                 <h3>ADD TO BAG</h3>
                             </CustomButton>
                             <CustomButton onClick={() => console.log('Add to favourites')} inverted>
                                 <h3>ADD TO FAVOURITES</h3>
                             </CustomButton>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

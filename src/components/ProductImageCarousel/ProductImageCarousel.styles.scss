@@ -1,6 +1,5 @@
 .product-image-carousel {
     height: auto;
-    width: 100%;
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -14,14 +13,12 @@
     }
 
     .large-product-image {
-        display: inline-block;
         height: auto;
         width: 100%;
         object-fit: contain;
     }
 
     .thumb-product-image {
-        display: inline-block;
         height: auto;
         width: 100%;
         object-fit: contain;
