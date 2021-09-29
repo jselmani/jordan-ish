@@ -7,7 +7,7 @@ import './App.css';
 import HomePage from './pages/HomePage/HomePage.component';
 import ShopPage from './pages/ShopPage/ShopPage.component';
 
-import Header from './components/Header/Header.component';
+import NavBar from './components/NavBar/NavBar.component';
 import Footer from './components/Footer/Footer.component';
 
 import { fetchAllShoesStart } from './redux/shop/shop.actions';
@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <NavBar />
       <Switch>
         <Route exact={true} path='/' component={ HomePage } />
         <Route path='/shop' component={ ShopPage } />

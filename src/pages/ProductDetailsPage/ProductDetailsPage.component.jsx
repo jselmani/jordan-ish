@@ -25,7 +25,6 @@ const ProductDetailsPage = () => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        // add logic here
     }
 
     return (
@@ -42,7 +41,7 @@ const ProductDetailsPage = () => {
                     }
                 </div>
                 <div className="product-details">
-                <h2 className="product-option-title">PRODUCT DETAILS</h2>
+                <h2 className="product-details-title">PRODUCT DETAILS</h2>
                     {
                         secondaryImages ?
                             <div className="product-options">

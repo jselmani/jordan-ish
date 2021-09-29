@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import jordanLogo from '../../images/jordan-logo.png';
 
-import './Header.styles.scss';
+import './NavBar.styles.scss';
 
-const Header = () => {
+const NavBar = () => {
     return (
-        <div className="header">
+        <div className="navbar">
             <Link className="logo-container" to="/">
                 <img src={jordanLogo} alt="jordan logo" />
             </Link>
@@ -23,4 +23,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default NavBar;
