@@ -13,15 +13,16 @@ const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const { productId }  = useParams();
 
+    // TODO: Create HOC to use isFetching state so ProductDetailsPage is available on page refresh
+    useEffect(() => {
+        dispatch(fetchShoeByIdStart(productId));
+    }, [dispatch, productId]);
+
     const [isPrimary, setIsPrimary] = useState(true);
     const [shoeSize, setShoeSize] = useState(null);
 
     const shoe = useSelector(selectShoeById(productId));
     const { description, name, price, primaryImages, secondaryImages, tag, gender, sizes } = shoe;
-
-    useEffect(() => {
-        dispatch(fetchShoeByIdStart(productId));
-    }, [dispatch, productId]);
 
     const handleSubmit = async event => {
         event.preventDefault();
