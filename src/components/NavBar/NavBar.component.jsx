@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import jordanLogo from '../../images/jordan-logo.png';
 
 import './NavBar.styles.scss';
+import CartIcon from '../CartIcon/CartIcon.component';
 
 const NavBar = () => {
     return (
@@ -17,6 +18,9 @@ const NavBar = () => {
                 </Link>
                 <Link className="option" to="/">
                     <span>ABOUT</span>
+                </Link>
+                <Link className="option" to="/checkout">
+                    <CartIcon />
                 </Link>
             </div>
         </div>
