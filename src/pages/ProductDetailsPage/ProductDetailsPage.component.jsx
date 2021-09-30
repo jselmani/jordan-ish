@@ -5,9 +5,10 @@ import { useParams } from 'react-router-dom';
 import './ProductDetailsPage.styles.scss';
 import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
 import CustomButton from '../../components/CustomButton/CustomButton.component';
+import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
-import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
+import { addItem } from '../../redux/cart/cart.actions';
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -24,8 +25,25 @@ const ProductDetailsPage = () => {
     const shoe = useSelector(selectShoeById(productId));
     const { description, name, price, primaryImages, secondaryImages, tag, gender, sizes } = shoe;
 
-    const handleSubmit = async event => {
+    // event handlers
+    const handleSubmit = event => {
         event.preventDefault();
+    }
+
+    const handleAddToCart = () => {
+        if(shoeSize) {
+            const productToAdd = {
+                size: shoeSize,
+                specificId: isPrimary ? shoe.id[0] : shoe.id[1],
+                isPrimary,
+                ...shoe
+            };
+
+            dispatch(addItem(productToAdd));
+        } else {
+            // show Toast that they need to choose a shoe size
+            console.log('Select a shoe size');
+        }
     }
 
     return (
@@ -90,7 +108,7 @@ const ProductDetailsPage = () => {
                         <div className="product-description">{ description }</div>
                     </form>
                     <div className="product-buttons">
-                            <CustomButton onClick={() => console.log('Add to cart')}>
+                            <CustomButton onClick={handleAddToCart}>
                                 <h3>ADD TO BAG</h3>
                             </CustomButton>
                             <CustomButton onClick={() => console.log('Add to favourites')} inverted>
