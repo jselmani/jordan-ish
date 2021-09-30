@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import './ProductDetailsPage.styles.scss';
 import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
 import CustomButton from '../../components/CustomButton/CustomButton.component';
+import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
+
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
-import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
+import { addItem } from '../../redux/cart/cart.actions';
+import { SuccessToast, ErrorToast } from '../../components/Toasts/Toasts.component';
+
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
     const { productId }  = useParams();
+
+    // TODO: Create HOC to use isFetching state so ProductDetailsPage is available on page refresh
+    useEffect(() => {
+        dispatch(fetchShoeByIdStart(productId));
+    }, [dispatch, productId]);
 
     const [isPrimary, setIsPrimary] = useState(true);
     const [shoeSize, setShoeSize] = useState(null);
@@ -19,13 +29,28 @@ const ProductDetailsPage = () => {
     const shoe = useSelector(selectShoeById(productId));
     const { description, name, price, primaryImages, secondaryImages, tag, gender, sizes } = shoe;
 
-    useEffect(() => {
-        dispatch(fetchShoeByIdStart(productId));
-    }, [dispatch, productId]);
-
-    const handleSubmit = async event => {
+    // event handlers
+    const handleSubmit = event => {
         event.preventDefault();
-        // add logic here
+    }
+
+    const handleAddToCart = () => {
+        if(shoeSize) {
+            const productToAdd = {
+                size: shoeSize,
+                specificId: isPrimary ? shoe.id[0] : shoe.id[1],
+                isPrimary,
+                ...shoe
+            };
+            dispatch(addItem(productToAdd));
+            toast((t) => (
+                <SuccessToast t={t} {...productToAdd} />
+            ));
+        } else {
+            toast((t) => (
+                <ErrorToast t={t} />
+            ));
+        }
     }
 
     return (
@@ -42,7 +67,7 @@ const ProductDetailsPage = () => {
                     }
                 </div>
                 <div className="product-details">
-                <h2 className="product-option-title">PRODUCT DETAILS</h2>
+                <h2 className="product-details-title">PRODUCT DETAILS</h2>
                     {
                         secondaryImages ?
                             <div className="product-options">
@@ -90,7 +115,7 @@ const ProductDetailsPage = () => {
                         <div className="product-description">{ description }</div>
                     </form>
                     <div className="product-buttons">
-                            <CustomButton onClick={() => console.log('Add to cart')}>
+                            <CustomButton onClick={handleAddToCart}>
                                 <h3>ADD TO BAG</h3>
                             </CustomButton>
                             <CustomButton onClick={() => console.log('Add to favourites')} inverted>

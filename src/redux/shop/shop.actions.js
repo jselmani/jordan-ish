@@ -14,9 +14,9 @@ export const fetchShoesFailure = errorMessage => ({
     payload: errorMessage
 });
 
-export const fetchShoeByIdStart = id => ({
+export const fetchShoeByIdStart = shoeId => ({
     type: ShopActionTypes.FETCH_SHOE_BY_ID_START,
-    id
+    shoeId: shoeId
 });
 
 export const fetchShoeByIdSuccess = shoe => ({

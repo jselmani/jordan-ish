@@ -20,8 +20,8 @@ const CollectionPage = () => {
                     collection.map(product => {
                         return (
                             <ProductCard 
-                                key={product.id}
-                                routeToProduct={() => history.push(`../products/${product.id}`)}
+                                key={product.id[0]}
+                                routeToProduct={() => history.push(`../products/${product.id[0]}`)}
                                 {...product} 
                             />
                         )

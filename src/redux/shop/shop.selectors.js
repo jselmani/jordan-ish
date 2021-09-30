@@ -1,7 +1,6 @@
 import { createSelector } from "reselect";
 
 const selectShoes = state => state.shop.shoes;
-const selectShoe = state => state.shop.shoe;
 
 export const selectAllShoes = createSelector(
     selectShoes,
@@ -76,7 +75,19 @@ export const selectCollection = collectionUrlParam => {
 
 export const selectShoeById = shoeId => createSelector(
     selectAllShoes,
-    shoes => shoes ? shoes[shoeId - 1] : null
+    shoes => {
+        if(shoes) {
+            let result = null;
+            let numShoeId = parseInt(shoeId);
+            for(const shoe of shoes) {
+                if(shoe.id.includes(numShoeId)) {
+                    result = shoe;
+                    break;
+                }
+            }
+            return result;
+        }
+    }
 );
 
 /**

@@ -1,6 +1,6 @@
 const shoes = [
     {
-        id: 1,
+        id: [1, 2],
         name: 'Jordan Point Lane',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/1af2fbd8-baf4-4b61-8208-0c0432236731/jordan-point-lane-mens-shoes-PPMHdC.png',
@@ -18,7 +18,7 @@ const shoes = [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/55be4d42-03fe-40e4-8349-d834038a78e4/jordan-point-lane-mens-shoes-PPMHdC.png',
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/26ced931-ab3d-4a63-b351-71fb659e2273/jordan-point-lane-mens-shoes-PPMHdC.png'
         ],
-        price: 140,
+        price: 170,
         gender: 'men',
         description: 'The Jordan Point Lane mixes elements from game shoes MJ wore during 3 of his most memorable seasons. Named for his Chicago address, this mash-up pulls in bits and pieces from the AJ3, AJ6 and AJ11 to create a shoe that\'s inspired by greatness and uncompromising in its comfort.',
         tag: 'Nike Max Air',
@@ -40,7 +40,7 @@ const shoes = [
         ]
     },
     {
-        id: 2,
+        id: [3, 4],
         name: 'Jordan MA2',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/70a2c25b-e9e8-441f-9d60-1327f27bd9f7/jordan-ma2-shoes-VfLVbR.png',
@@ -80,7 +80,7 @@ const shoes = [
         ] 
     },
     {
-        id: 3,
+        id: [5],
         name: 'Air Jordan 5 Retro',
         primaryImages: [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/9466aad5-0e40-4f69-83d6-c3e09cd80e1a/air-jordan-5-moonlight-release-date.jpg',
@@ -113,7 +113,7 @@ const shoes = [
         ]
     },
     {
-        id: 4,
+        id: [6],
         name: 'Jordan Flight Club \'91',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/194aca08-5d88-408a-bc4c-577ccd71b142/jordan-flight-club-91-shoe-ZpS5xB.png',
@@ -146,7 +146,7 @@ const shoes = [
         ] 
     },
     {
-        id: 5,
+        id: [7, 8],
         name: 'Jordan Max Aura 3',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4310c583-01fa-42b0-87d4-5fc2614f5e1e/jordan-max-aura-3-mens-shoes-lqz9jG.png',
@@ -186,7 +186,7 @@ const shoes = [
         ]
     },
     {
-        id: 6,
+        id: [9, 10],
         name: 'Air Jordan 11 CMFT Low',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/d9b23296-0c5e-410f-b009-6408621d68ff/air-jordan-11-cmft-low-mens-shoes-ZDSL6h.png',
@@ -226,7 +226,7 @@ const shoes = [
         ]
     },
     {
-        id: 7,
+        id: [11, 12],
         name: 'Zion 1',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/52dcc471-4bd1-4bd5-8c1b-aeedcb5e858e/zion-1-basketball-shoes-bJ0hLJ.png',
@@ -266,7 +266,7 @@ const shoes = [
         ] 
     },
     {
-        id: 8,
+        id: [13, 14],
         name: 'Jordan Zer0.4',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/aa551f30-9e4b-4bfd-b203-0a007ca867d9/jordan-why-not-zer04-basketball-shoes-QWssLZ.png',
@@ -306,7 +306,7 @@ const shoes = [
         ] 
     },
     {
-        id: 9,
+        id: [15, 16],
         name: 'Jordan Delta 2',
         primaryImages: [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/43dd9490-4e28-41aa-b69f-f35d17d7ae50/jordan-delta-2-3d-release-date.jpg',
@@ -346,7 +346,7 @@ const shoes = [
         ]
     },
     {
-        id: 10,
+        id: [17, 18],
         name: 'Air Jordan XXXVI',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/cde9e5af-3200-47db-b5f4-006229416876/air-jordan-xxxvi-se-glory-basketball-shoe-pHQcvD.png',
@@ -386,7 +386,7 @@ const shoes = [
         ] 
     },
     {
-        id: 11,
+        id: [19],
         name: 'Air Jordan 1 Mid SE',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/154c376a-f19f-44f3-b331-a5d4b50b17cb/air-jordan-1-mid-se-shoes-dkgqwK.png',
@@ -419,7 +419,7 @@ const shoes = [
         ] 
     },
     {
-        id: 12,
+        id: [20, 21],
         name: 'Air Jordan 1 Mid',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/i1-d2f41ddc-a08e-443a-8eb0-6960ebb4a408/air-jordan-1-mid-shoes-RRTg1P1y.png',
@@ -459,7 +459,7 @@ const shoes = [
         ] 
     },
     {
-        id: 13,
+        id: [22],
         name: 'Air Jordan 1 Mid Refresh',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/c0c8aae3-9f94-43c3-9fec-155ad4c123ab/air-jordan-1-mid-shoes-lpJv2q.png',
@@ -492,7 +492,7 @@ const shoes = [
         ]
     },
     {
-        id: 14,
+        id: [23, 24],
         name: 'Air Jordan 1 Low',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/7b096ff5-d3df-41c5-a4b5-dae96e176eff/air-jordan-1-low-shoe-v2kdOZ.png',
@@ -532,7 +532,7 @@ const shoes = [
         ] 
     },
     {
-        id: 15,
+        id: [25],
         name: 'Air Jordan 3 Retro',
         primaryImages: [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/6d809804-56d6-4ca0-a944-40e82c08b713/air-jordan-3-retro-racer-blue-release-date.jpg',
@@ -565,7 +565,7 @@ const shoes = [
         ] 
     },
     {
-        id: 16,
+        id: [26],
         name: 'Jordan Zoom \'92',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/10943dae-b1d7-4daf-b2f8-8701ae582b21/jordan-zoom-92-shoes-31zKhf.png',
@@ -598,7 +598,7 @@ const shoes = [
         ]
     },
     {
-        id: 17,
+        id: [27],
         name: 'Jordan One Take II',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/fa8c6535-cd85-4877-8cf8-bbb68e6ae4ab/jordan-one-take-ii-basketball-shoe-k4Ql69.png',
@@ -631,7 +631,7 @@ const shoes = [
         ] 
     },
     {
-        id: 18,
+        id: [28, 29],
         name: 'Air Jordan XXXV',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/7b6c54be-b1b5-4219-b3a2-cec8d2374621/air-jordan-xxxv-sisterhood-basketball-shoe-1hWNQd.png',
@@ -671,7 +671,7 @@ const shoes = [
         ] 
     },
     {
-        id: 19,
+        id: [30, 31],
         name: 'Air Jordan XXXV Low',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/82246434-aaae-423a-81bb-d50e8184919a/air-jordan-xxxv-low-basketball-shoe-sxct2C.png',
@@ -711,7 +711,7 @@ const shoes = [
         ] 
     },
     {
-        id: 20,
+        id: [32, 33],
         name: 'Air Jordan 1 Zoom Air Comfort',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4535711b-1881-4836-b2d7-8f453055a77f/air-jordan-1-zoom-air-comfort-shoe-h6dBTb.png',
@@ -751,7 +751,7 @@ const shoes = [
         ]
     },
     {
-        id: 21,
+        id: [34],
         name: 'Jordan MA2 \'Lunar Launch\'',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e4979797-edcd-4316-ae11-0ad1215f6622/jordan-ma2-lunar-launch-shoe-QHW5LG.png',
@@ -784,7 +784,7 @@ const shoes = [
         ]
     },
     {
-        id: 22,
+        id: [35, 36],
         name: 'Air Jordan 1 Mid',
         primaryImages: [
             'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/be523428-3e10-4347-ba36-e677b594afa3/air-jordan-1-mid-shoe-xMNLGv.png',
@@ -824,7 +824,7 @@ const shoes = [
         ]
     },
     {
-        id: 23,
+        id: [37],
         name: 'Air Jordan 14 Retro Low',
         primaryImages: [
             'https://static.nike.com/a/images/t_prod_ss/w_640,c_limit,f_auto/64709aaf-6037-4c80-a9e7-33af6f63f763/women-s-air-jordan-14-low-red-lipstick-release-date.jpg',

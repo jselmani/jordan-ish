@@ -31,9 +31,16 @@ function* fetchAllShoesStart() {
     );
 }
 
-function* fetchShoeById({ id }) {
-    const shoe = shoes[id - 1];
-    yield put(fetchShoeByIdSuccess(shoe));
+function* fetchShoeById({ shoeId }) {
+    let shoePayload = null;
+    let numShoeId = parseInt(shoeId);
+    for(const shoe of shoes) {
+        if(shoe.id.includes(numShoeId)) {
+            shoePayload = shoe;
+            break;
+        }
+    }
+    yield put(fetchShoeByIdSuccess(shoePayload));
 }
 
 function* fetchShoeByIdStart() {
