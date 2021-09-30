@@ -7,9 +7,12 @@ import './ProductDetailsPage.styles.scss';
 import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
 import CustomButton from '../../components/CustomButton/CustomButton.component';
 import CustomRadioButton from '../../components/CustomRadioButton/CustomRadioButton.component';
+
 import { selectShoeById } from '../../redux/shop/shop.selectors';
 import { fetchShoeByIdStart } from '../../redux/shop/shop.actions';
 import { addItem } from '../../redux/cart/cart.actions';
+import { SuccessToast, ErrorToast } from '../../components/Toasts/Toasts.component';
+
 
 const ProductDetailsPage = () => {
     const dispatch = useDispatch();
@@ -40,9 +43,13 @@ const ProductDetailsPage = () => {
                 ...shoe
             };
             dispatch(addItem(productToAdd));
-            toast('Shoes successfully added to cart!');
+            toast((t) => (
+                <SuccessToast t={t} {...productToAdd} />
+            ));
         } else {
-            toast('Select a shoe size first.');
+            toast((t) => (
+                <ErrorToast t={t} />
+            ));
         }
     }
 

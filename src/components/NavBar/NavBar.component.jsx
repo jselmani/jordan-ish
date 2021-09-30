@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import jordanLogo from '../../images/jordan-logo.png';
+import jordanLogo from '../../images/jordan-logo-white.png';
 
 import './NavBar.styles.scss';
 import CartIcon from '../CartIcon/CartIcon.component';
