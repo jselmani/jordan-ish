@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import './App.css';
 
@@ -23,6 +24,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <Toaster 
+        position="bottom-center"
+      />
       <NavBar />
       <Switch>
         <Route exact path='/' component={ HomePage } />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import './ProductDetailsPage.styles.scss';
 import ProductImageCarousel from '../../components/ProductImageCarousel/ProductImageCarousel.component';
@@ -38,11 +39,10 @@ const ProductDetailsPage = () => {
                 isPrimary,
                 ...shoe
             };
-
             dispatch(addItem(productToAdd));
+            toast('Shoes successfully added to cart!');
         } else {
-            // show Toast that they need to choose a shoe size
-            console.log('Select a shoe size');
+            toast('Select a shoe size first.');
         }
     }
 
