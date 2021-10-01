@@ -1,94 +1,98 @@
 import { createSelector } from "reselect";
 
-const selectShoes = state => state.shop.shoes;
+const selectShoes = (state) => state.shop.shoes;
 
-export const selectAllShoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes : []
+export const selectAllShoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes : []
 );
 
-export const selectMensShoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.gender === 'men') : []
+export const selectMensShoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes.filter((shoe) => shoe.gender === "men") : []
 );
 
-export const selectMensShoesWithUnisex = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.gender === 'men' || shoe.gender === 'unisex') : []
+export const selectMensShoesWithUnisex = createSelector(selectShoes, (shoes) =>
+  shoes
+    ? shoes.filter((shoe) => shoe.gender === "men" || shoe.gender === "unisex")
+    : []
 );
 
-export const selectWomensShoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.gender === 'women') : []
+export const selectWomensShoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes.filter((shoe) => shoe.gender === "women") : []
 );
 
 export const selectWomensShoesWithUnisex = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.gender === 'women' || shoe.gender === 'unisex') : []
+  selectShoes,
+  (shoes) =>
+    shoes
+      ? shoes.filter(
+          (shoe) => shoe.gender === "women" || shoe.gender === "unisex"
+        )
+      : []
 );
 
-export const selectBasketballShoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.type === 'basketball') : []
+export const selectBasketballShoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes.filter((shoe) => shoe.type === "basketball") : []
 );
 
-export const selectAirJordan1Shoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.type === 'air-jordan-1') : []
+export const selectAirJordan1Shoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes.filter((shoe) => shoe.type === "air-jordan-1") : []
 );
 
-export const selectSNKRSShoes = createSelector(
-    selectShoes,
-    shoes => shoes ? shoes.filter(shoe => shoe.type === 'SNKRS') : []
+export const selectSNKRSShoes = createSelector(selectShoes, (shoes) =>
+  shoes ? shoes.filter((shoe) => shoe.type === "SNKRS") : []
 );
 
 export const selectCollectionsForPreview = createSelector(
-    selectMensShoes,
-    selectWomensShoes,
-    selectAirJordan1Shoes,
-    selectBasketballShoes,
-    selectSNKRSShoes,
-    
-    (mensShoes, womensShoes, aj1Shoes, basketballShoes, SNKRSShoes) => {
-        let collectionsArray = [];
-        collectionsArray.push(mensShoes, womensShoes, aj1Shoes, basketballShoes, SNKRSShoes);
-        return collectionsArray;
-    }
+  selectMensShoes,
+  selectWomensShoes,
+  selectAirJordan1Shoes,
+  selectBasketballShoes,
+  selectSNKRSShoes,
+
+  (mensShoes, womensShoes, aj1Shoes, basketballShoes, SNKRSShoes) => {
+    let collectionsArray = [];
+    collectionsArray.push(
+      mensShoes,
+      womensShoes,
+      aj1Shoes,
+      basketballShoes,
+      SNKRSShoes
+    );
+    return collectionsArray;
+  }
 );
 
-export const selectCollection = collectionUrlParam => {
-    switch(collectionUrlParam) {
-        case 'mens':
-            return selectMensShoesWithUnisex;
-        case 'womens':
-            return selectWomensShoesWithUnisex;
-        case 'air-jordan-1':
-            return selectAirJordan1Shoes;
-        case 'basketball':
-            return selectBasketballShoes;
-        case 'snkrs':
-            return selectSNKRSShoes;
-        default:
-            return selectAllShoes;
-    }
+export const selectCollection = (collectionUrlParam) => {
+  switch (collectionUrlParam) {
+    case "mens":
+      return selectMensShoesWithUnisex;
+    case "womens":
+      return selectWomensShoesWithUnisex;
+    case "air-jordan-1":
+      return selectAirJordan1Shoes;
+    case "basketball":
+      return selectBasketballShoes;
+    case "snkrs":
+      return selectSNKRSShoes;
+    default:
+      return selectAllShoes;
+  }
 };
 
-export const selectShoeById = shoeId => createSelector(
-    selectAllShoes,
-    shoes => {
-        if(shoes) {
-            let result = null;
-            let numShoeId = parseInt(shoeId);
-            for(const shoe of shoes) {
-                if(shoe.id.includes(numShoeId)) {
-                    result = shoe;
-                    break;
-                }
-            }
-            return result;
+export const selectShoeById = (shoeId) =>
+  createSelector(selectAllShoes, (shoes) => {
+    if (shoes) {
+      let result = null;
+      let numShoeId = parseInt(shoeId);
+      for (const shoe of shoes) {
+        if (shoe.id.includes(numShoeId)) {
+          result = shoe;
+          break;
         }
+      }
+      return result;
     }
-);
+  });
 
 /**
  * TODO:
@@ -102,11 +106,11 @@ export const selectShoeById = shoeId => createSelector(
 // );
 
 export const selectAreShoesFetching = createSelector(
-    selectShoes,
-    shoes => shoes.isFetching
+  selectShoes,
+  (shoes) => shoes.isFetching
 );
 
 export const selectAreShoesLoaded = createSelector(
-    selectShoes,
-    shoes => !!shoes
+  selectShoes,
+  (shoes) => !!shoes
 );

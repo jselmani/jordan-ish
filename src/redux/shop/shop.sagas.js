@@ -1,58 +1,41 @@
-import {
-    takeLatest,
-    call,
-    put,
-    all
-} from 'redux-saga/effects';
+import { takeLatest, call, put, all } from "redux-saga/effects";
 
-import {
-    fetchShoesSuccess,
-    fetchShoeByIdSuccess
-} from './shop.actions';
+import { fetchShoesSuccess, fetchShoeByIdSuccess } from "./shop.actions";
 
-import ShopActionTypes from './shop.types';
-import shoes from './shop.data';
+import ShopActionTypes from "./shop.types";
+import shoes from "./shop.data";
 
 /**
  * TODOS:
  * Create Backend to Fetch Data from
- * Heroku, Glitch, or Firebase 
+ * Heroku, Glitch, or Firebase
  * Fetch data from backend rather than local array
  */
 
 function* fetchAllShoes() {
-    yield put(fetchShoesSuccess(shoes));
+  yield put(fetchShoesSuccess(shoes));
 }
 
 function* fetchAllShoesStart() {
-    yield takeLatest(
-        ShopActionTypes.FETCH_ALL_SHOES_START,
-        fetchAllShoes
-    );
+  yield takeLatest(ShopActionTypes.FETCH_ALL_SHOES_START, fetchAllShoes);
 }
 
 function* fetchShoeById({ shoeId }) {
-    let shoePayload = null;
-    let numShoeId = parseInt(shoeId);
-    for(const shoe of shoes) {
-        if(shoe.id.includes(numShoeId)) {
-            shoePayload = shoe;
-            break;
-        }
+  let shoePayload = null;
+  let numShoeId = parseInt(shoeId);
+  for (const shoe of shoes) {
+    if (shoe.id.includes(numShoeId)) {
+      shoePayload = shoe;
+      break;
     }
-    yield put(fetchShoeByIdSuccess(shoePayload));
+  }
+  yield put(fetchShoeByIdSuccess(shoePayload));
 }
 
 function* fetchShoeByIdStart() {
-    yield takeLatest(
-        ShopActionTypes.FETCH_SHOE_BY_ID_START,
-        fetchShoeById
-    );
+  yield takeLatest(ShopActionTypes.FETCH_SHOE_BY_ID_START, fetchShoeById);
 }
 
 export function* shopSagas() {
-    yield all([
-        call(fetchAllShoesStart),
-        call(fetchShoeByIdStart)
-    ]);
+  yield all([call(fetchAllShoesStart), call(fetchShoeByIdStart)]);
 }
