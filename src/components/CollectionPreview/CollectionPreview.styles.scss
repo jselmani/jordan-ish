@@ -1,39 +1,39 @@
 .collection-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 15px;
+
+  .title {
+    font-size: 28px;
+    margin-left: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+      color: #444444;
+    }
+  }
+
+  .preview {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-content: center;
-    margin-bottom: 15px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 
-    .title {
-        font-size: 28px;
-        margin-bottom: 15px;
-
-        &:hover {
-            cursor: pointer;
-            color: #444444;
-        }
+    @media screen and (min-width: 10rem) {
+      flex-wrap: wrap;
     }
 
-    .preview {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-
-        @media (min-width: 10rem) {
-            flex-wrap: wrap;
-        }
-
-        @media (min-width: 35rem) {
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-        }
-
-        @media (min-width: 56rem) {
-            flex-wrap: nowrap;
-            justify-content: space-evenly;
-        }
+    @media screen and (min-width: 35rem) {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
+
+    @media screen and (min-width: 56rem) {
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+    }
+  }
 }

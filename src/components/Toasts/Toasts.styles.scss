@@ -1,73 +1,73 @@
 .success-toast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .success-toast-header {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     align-items: center;
+    width: 100%;
 
-    .success-toast-header {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100%;
+    img {
+      height: 30px;
+    }
+  }
 
-        img {
-            height: 30px;
-        }
+  .success-toast-content {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+
+    .success-toast-image {
+      img {
+        height: auto;
+        width: 100px;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+      }
     }
 
-    .success-toast-content {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
-        width: 100%;
+    .success-toast-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 0 1rem;
+      text-transform: uppercase;
 
-        .success-toast-image {
-            img {
-                height: auto;
-                width: 100px;
-                box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
-            }
-        }
+      .success-toast-title,
+      .success-toast-price,
+      .success-toast-gender,
+      .success-toast-tag,
+      .success-toast-type,
+      .success-toast-size {
+        margin-bottom: 5px;
+      }
 
-        .success-toast-details {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            padding: 0 1rem;
-            text-transform: uppercase;
-
-            .success-toast-title,
-            .success-toast-price,
-            .success-toast-gender,
-            .success-toast-tag,
-            .success-toast-type,
-            .success-toast-size {
-                margin-bottom: 5px;
-            }
-
-            .success-toast-title {
-                font-weight: 600;
-            }
-        }
+      .success-toast-title {
+        font-weight: 600;
+      }
     }
+  }
 }
 
 .error-toast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .error-toast-content {
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
 
-    .error-toast-content {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-            height: 30px;
-        }
-        h3 {
-            padding: 0 10px;
-        }
+    img {
+      height: 30px;
     }
+    h3 {
+      padding: 0 10px;
+    }
+  }
 }
