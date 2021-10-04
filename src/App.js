@@ -13,6 +13,8 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
 import NavBar from "./components/NavBar/NavBar.component";
 import Footer from "./components/Footer/Footer.component";
 
+import ViewportProvider from "./contexts/viewportcontext";
+
 import { fetchAllShoesStart } from "./redux/shop/shop.actions";
 
 const App = () => {
@@ -24,19 +26,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <Toaster position="bottom-center" />
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route
-          exact
-          path="/products/:productId"
-          component={ProductDetailsPage}
-        />
-        <Route exact path="/checkout" component={CheckoutPage} />
-      </Switch>
-      <Footer />
+      <ViewportProvider>
+        <Toaster position="bottom-center" />
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route
+            exact
+            path="/products/:productId"
+            component={ProductDetailsPage}
+          />
+          <Route exact path="/checkout" component={CheckoutPage} />
+        </Switch>
+        <Footer />
+      </ViewportProvider>
     </div>
   );
 };

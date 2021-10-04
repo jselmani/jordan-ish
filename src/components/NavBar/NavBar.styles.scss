@@ -5,6 +5,7 @@
   background-color: black;
   display: flex;
   justify-content: center;
+  z-index: 1;
 
   .logo-container {
     width: 125px;
@@ -23,12 +24,41 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-content: center;
     justify-content: flex-end;
 
     .option {
-      padding: 10px 15px;
+      padding: 15px 15px;
       cursor: pointer;
       color: white;
+
+      .menu-icon {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    top: 100px;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+
+    .menu-list-item {
+      color: white;
+      padding: 10px;
     }
   }
 }
