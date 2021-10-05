@@ -8,6 +8,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage.component";
 import ShopPage from "./pages/ShopPage/ShopPage.component";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.component";
+import SignInSignUpPage from "./pages/SignInSignUpPage/SignInSignUp.component";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
 
 import NavBar from "./components/NavBar/NavBar.component";
@@ -29,16 +30,19 @@ const App = () => {
       <ViewportProvider>
         <Toaster position="bottom-center" />
         <NavBar />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route
-            exact
-            path="/products/:productId"
-            component={ProductDetailsPage}
-          />
-          <Route exact path="/checkout" component={CheckoutPage} />
-        </Switch>
+        <div className="content-container">
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route
+              exact
+              path="/products/:productId"
+              component={ProductDetailsPage}
+            />
+            <Route exact path="/signin" component={SignInSignUpPage} />
+            <Route exact path="/checkout" component={CheckoutPage} />
+          </Switch>
+        </div>
         <Footer />
       </ViewportProvider>
     </div>

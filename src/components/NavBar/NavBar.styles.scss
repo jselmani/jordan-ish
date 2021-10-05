@@ -4,6 +4,7 @@
   margin-bottom: 15px;
   background-color: black;
   display: flex;
+  position: fixed;
   justify-content: center;
   z-index: 100;
 
@@ -49,16 +50,18 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 250px;
+    height: calc(100vh - 100px);
     z-index: 10;
     position: fixed;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: black;
     padding: 20px;
     top: 100px;
 
     .menu-list-item {
       color: white;
       padding: 10px;
+      font-size: 32px;
+      font-weight: 500;
     }
   }
 }

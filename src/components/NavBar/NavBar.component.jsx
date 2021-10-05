@@ -22,6 +22,9 @@ const LargeScreenNavBar = () => {
         <Link className="option" to="/">
           <span>ABOUT</span>
         </Link>
+        <Link className="option" to="/signin">
+          <span>SIGN IN</span>
+        </Link>
         <Link className="option" to="/checkout">
           <CartIcon />
         </Link>
@@ -36,7 +39,7 @@ const SmallScreenNavBar = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
     isOpen
-      ? (document.body.style.overflow = "scroll")
+      ? (document.body.style.overflow = "auto")
       : (document.body.style.overflow = "hidden");
   };
 
@@ -86,6 +89,9 @@ const SmallScreenNavBar = () => {
         </Link>
         <Link className="menu-list-item" to="/" onClick={handleClick}>
           <span>ABOUT</span>
+        </Link>
+        <Link className="menu-list-item" to="/signin" onClick={handleClick}>
+          <span>SIGN IN</span>
         </Link>
       </motion.div>
     </div>
