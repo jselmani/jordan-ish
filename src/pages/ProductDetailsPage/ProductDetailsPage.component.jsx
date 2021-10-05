@@ -60,6 +60,15 @@ const ProductDetailsPage = () => {
     }
   };
 
+  const handleClick = (value) => {
+    setIsPrimary(value);
+    if (value) {
+      window.history.replaceState(null, "", shoe.id[0]);
+    } else {
+      window.history.replaceState(null, "", shoe.id[1]);
+    }
+  };
+
   return (
     <div className="product-details-page">
       <div className="product-title">
@@ -83,10 +92,7 @@ const ProductDetailsPage = () => {
           <h2 className="product-details-title">PRODUCT DETAILS</h2>
           {secondaryImages ? (
             <div className="product-options">
-              <div
-                className="product-option"
-                onClick={() => setIsPrimary(true)}
-              >
+              <div className="product-option" onClick={() => handleClick(true)}>
                 <img
                   className={isPrimary ? "selected" : ""}
                   src={primaryImages[0]}
@@ -95,7 +101,7 @@ const ProductDetailsPage = () => {
               </div>
               <div
                 className="product-option"
-                onClick={() => setIsPrimary(false)}
+                onClick={() => handleClick(false)}
               >
                 <img
                   className={isPrimary ? "" : "selected"}
