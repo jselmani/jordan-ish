@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 import jordanLogo from "../../images/jordan-logo-white.png";
 
@@ -30,9 +31,23 @@ const LargeScreenNavBar = () => {
 };
 
 const SmallScreenNavBar = () => {
-  const [clicked, setClicked] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => setClicked(!clicked);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    isOpen
+      ? (document.body.style.overflow = "scroll")
+      : (document.body.style.overflow = "hidden");
+  };
+
+  const iconVariants = {
+    closed: {
+      rotate: 180,
+    },
+    opened: {
+      rotate: 360,
+    },
+  };
 
   return (
     <div className="navbar">
@@ -43,22 +58,36 @@ const SmallScreenNavBar = () => {
         <Link className="option" to="/checkout">
           <CartIcon />
         </Link>
-        <div className="option" onClick={handleClick}>
-          {clicked ? (
+        <motion.div
+          className={isOpen ? "option is-open" : "option"}
+          onClick={handleClick}
+          initial={false}
+          animate={isOpen ? "opened" : "closed"}
+          variants={iconVariants}
+        >
+          {isOpen ? (
             <FaTimes className="menu-icon" />
           ) : (
             <FaBars className="menu-icon" />
           )}
-        </div>
+        </motion.div>
       </div>
-      <div className={clicked ? "menu-list" : "menu-list close"}>
-        <Link className="menu-list-item" to="/shop">
+      <motion.div
+        className="menu-list"
+        initial={false}
+        animate={isOpen ? { x: 0 } : { x: "100%" }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.25,
+        }}
+      >
+        <Link className="menu-list-item" to="/shop" onClick={handleClick}>
           <span>SHOP</span>
         </Link>
-        <Link className="menu-list-item" to="/">
+        <Link className="menu-list-item" to="/" onClick={handleClick}>
           <span>ABOUT</span>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };
