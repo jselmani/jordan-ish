@@ -62,7 +62,7 @@ const SmallScreenNavBar = () => {
           <CartIcon />
         </Link>
         <motion.div
-          className={isOpen ? "option is-open" : "option"}
+          className="option"
           onClick={handleClick}
           initial={false}
           animate={isOpen ? "opened" : "closed"}

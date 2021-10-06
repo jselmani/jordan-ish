@@ -34,7 +34,7 @@ const SignIn = ({ handleClick }) => {
           name="email"
           type="email"
           value={email}
-          handleChange={handleChange}
+          onChange={handleChange}
           label="Email"
           required
         />
@@ -42,7 +42,7 @@ const SignIn = ({ handleClick }) => {
           name="password"
           type="password"
           value={password}
-          handleChange={handleChange}
+          onChange={handleChange}
           label="Password"
           required
         />

@@ -1,4 +1,4 @@
-.sign-in {
+.sign-up {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,37 +10,40 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
   background-color: white;
 
-  .sign-in-logo {
+  .sign-up-logo {
     img {
       height: 50px;
     }
   }
 
-  .sign-in-title {
+  .sign-up-title {
     margin: 10px 0;
+    text-align: center;
   }
 
-  .sign-in-subtitle {
+  .sign-up-subtitle {
     font-weight: 500;
+    text-align: center;
+    padding-bottom: 10px;
   }
 
   .button-container {
     width: 100%;
   }
 
-  .sign-up-container {
+  .sign-in-container {
     width: 100%;
     padding-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .sign-up-subtitle,
-    .sign-up-link {
+    .sign-in-subtitle,
+    .sign-in-link {
       color: grey;
     }
 
-    .sign-up-link {
+    .sign-in-link {
       padding-top: 5px;
 
       &:hover {
@@ -49,26 +52,31 @@
       }
     }
   }
+
+  .sign-up-error {
+    color: red;
+    font-size: 14px;
+  }
 }
 
 @media screen and (min-width: 10rem) {
-  .sign-in {
+  .sign-up {
     width: 300px;
 
-    .sign-in-title {
+    .sign-up-title {
       font-size: 28px;
     }
 
-    .sign-in-subtitle {
+    .sign-up-subtitle {
       font-size: 12px;
     }
 
-    .sign-up-container {
-      .sign-up-subtitle {
+    .sign-in-container {
+      .sign-in-subtitle {
         font-size: 12px;
       }
 
-      .sign-up-link {
+      .sign-in-link {
         font-size: 12px;
       }
     }
@@ -76,23 +84,23 @@
 }
 
 @media screen and (min-width: 56rem) {
-  .sign-in {
+  .sign-up {
     width: 350px;
 
-    .sign-in-title {
+    .sign-up-title {
       font-size: 32px;
     }
 
-    .sign-in-subtitle {
+    .sign-up-subtitle {
       font-size: 14px;
     }
 
-    .sign-up-container {
-      .sign-up-subtitle {
+    .sign-in-container {
+      .sign-in-subtitle {
         font-size: 14px;
       }
 
-      .sign-up-link {
+      .sign-in-link {
         font-size: 14px;
       }
     }
