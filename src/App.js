@@ -30,19 +30,17 @@ const App = () => {
       <ViewportProvider>
         <Toaster position="bottom-center" />
         <NavBar />
-        <div className="content-container">
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/shop" component={ShopPage} />
-            <Route
-              exact
-              path="/products/:productId"
-              component={ProductDetailsPage}
-            />
-            <Route exact path="/signin" component={SignInSignUpPage} />
-            <Route exact path="/checkout" component={CheckoutPage} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route
+            exact
+            path="/products/:productId"
+            component={ProductDetailsPage}
+          />
+          <Route exact path="/signin" component={SignInSignUpPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+        </Switch>
         <Footer />
       </ViewportProvider>
     </div>

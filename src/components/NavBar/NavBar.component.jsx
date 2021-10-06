@@ -78,7 +78,7 @@ const SmallScreenNavBar = () => {
       <motion.div
         className="menu-list"
         initial={false}
-        animate={isOpen ? { x: 0 } : { x: "100%" }}
+        animate={isOpen ? { y: 0 } : { y: "100%" }}
         transition={{
           ease: "easeInOut",
           duration: 0.25,
