@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import jordanLogoBlack from "../../images/jordan-logo-black.png";
 
@@ -6,19 +6,18 @@ import "./SignIn.styles.scss";
 import CustomButton from "../CustomButton/CustomButton.component";
 import FormInput from "../FormInput/FormInput.component";
 
+import useForm from "../../hooks/useForm";
+import validateCredentials from "../../helpers/validateCredentials";
+
 const SignIn = ({ handleClick }) => {
-  const [userCreds, setUserCreds] = useState({ email: "", password: "" });
+  const type = "sign-in";
 
-  const { email, password } = userCreds;
+  const { handleChange, signInCreds, handleSubmit, errors } = useForm(
+    validateCredentials,
+    type
+  );
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  };
-
-  const handleChange = (event) => {
-    const { value, name } = event.target;
-    setUserCreds({ ...userCreds, [name]: value });
-  };
+  const { signInEmail, signInPassword } = signInCreds;
 
   return (
     <div className="sign-in">
@@ -31,23 +30,33 @@ const SignIn = ({ handleClick }) => {
       </span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          name="email"
+          name="signInEmail"
           type="email"
-          value={email}
+          value={signInEmail}
           onChange={handleChange}
           label="Email"
           required
         />
+        {errors.signInEmail && (
+          <span className="sign-in-error">{errors.signInEmail}</span>
+        )}
         <FormInput
-          name="password"
+          name="signInPassword"
           type="password"
-          value={password}
+          value={signInPassword}
           onChange={handleChange}
           label="Password"
           required
         />
+        {errors.signInPassword && (
+          <span className="sign-in-error">{errors.signInPassword}</span>
+        )}
         <div className="button-container">
-          <CustomButton type="submit" style={{ width: "100%" }}>
+          <CustomButton
+            type="submit"
+            style={{ width: "100%" }}
+            onClick={handleSubmit}
+          >
             SIGN IN
           </CustomButton>
         </div>

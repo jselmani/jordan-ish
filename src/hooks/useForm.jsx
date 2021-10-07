@@ -1,36 +1,66 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-const useForm = (validateCredentials) => {
-  const [userCreds, setUserCreds] = useState({
+import { signUpStart, emailSignInStart } from "../redux/user/user.actions";
+
+const useForm = (validateCredentials, type) => {
+  const dispatch = useDispatch();
+  const [signUpCreds, setSignUpCreds] = useState({
     displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    signUpEmail: "",
+    signUpPassword: "",
+    signUpConfirmPassword: "",
   });
+
+  const [signInCreds, setSignInCreds] = useState({
+    signInEmail: "",
+    signInPassword: "",
+  });
+
+  const { displayName, signUpEmail, signUpPassword } = signUpCreds;
+  const { signInEmail, signInPassword } = signInCreds;
 
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setUserCreds({
-      ...userCreds,
-      [name]: value,
-    });
+
+    if (type === "sign-up") {
+      setSignUpCreds({
+        ...signUpCreds,
+        [name]: value,
+      });
+    } else if (type === "sign-in") {
+      setSignInCreds({
+        ...signInCreds,
+        [name]: value,
+      });
+    }
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setErrors(validateCredentials(userCreds));
+
+    let errorCheck;
+
+    if (type === "sign-up") {
+      errorCheck = validateCredentials(signUpCreds, type);
+    } else if (type === "sign-in") {
+      errorCheck = validateCredentials(signInCreds, type);
+    }
+
+    setErrors(errorCheck);
+
+    if (Object.keys(errorCheck).length === 0) {
+      if (type === "sign-up") {
+        dispatch(signUpStart({ signUpEmail, signUpPassword, displayName }));
+      } else if (type === "sign-in") {
+        dispatch(emailSignInStart({ signInEmail, signInPassword }));
+      }
+    }
   };
 
-  //   useEffect(() => {
-  //     if (Object.keys(errors).length === 0) {
-  //       callback();
-  //     }
-  //   }, [errors]);
-
-  return { handleSubmit, handleChange, userCreds, errors };
+  return { handleSubmit, handleChange, signUpCreds, signInCreds, errors };
 };
 
 export default useForm;

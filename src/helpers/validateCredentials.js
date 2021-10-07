@@ -1,27 +1,42 @@
-export default function validateCredentials(credentials) {
-  const { displayName, email, password, confirmPassword } = credentials;
+export default function validateCredentials(credentials, type) {
   let errors = {};
 
-  if (!displayName.trim()) {
-    errors.displayName = "Display name required";
-  }
+  if (type === "sign-up") {
+    if (!credentials.displayName.trim()) {
+      errors.displayName = "Display name required";
+    }
 
-  if (!email) {
-    errors.email = "Email required";
-  } else if (!/\S+@\S+\.\S+/.test(email)) {
-    errors.email = "Email address is invalid";
-  }
+    if (!credentials.signUpEmail) {
+      errors.signUpEmail = "Email required";
+    } else if (!/\S+@\S+\.\S+/.test(credentials.signUpEmail)) {
+      errors.signUpEmail = "Email address is invalid";
+    }
 
-  if (!password) {
-    errors.password = "Password is required";
-  } else if (password.length < 8) {
-    errors.password = "Password must be longer than 8 characters";
-  }
+    if (!credentials.signUpPassword) {
+      errors.signUpPassword = "Password is required";
+    } else if (credentials.signUpPassword.length < 8) {
+      errors.signUpPassword = "Password must be longer than 8 characters";
+    }
 
-  if (!confirmPassword) {
-    errors.confirmPassword = "Password is required";
-  } else if (confirmPassword !== password) {
-    errors.confirmPassword = "Passwords do not match";
+    if (!credentials.signUpConfirmPassword) {
+      errors.signUpConfirmPassword = "Password is required";
+    } else if (
+      credentials.signUpConfirmPassword !== credentials.signUpPassword
+    ) {
+      errors.signUpConfirmPassword = "Passwords do not match";
+    }
+  } else if (type === "sign-in") {
+    if (!credentials.signInEmail) {
+      errors.signInEmail = "Email required";
+    } else if (!/\S+@\S+\.\S+/.test(credentials.signInEmail)) {
+      errors.signInEmail = "Email address is invalid";
+    }
+
+    if (!credentials.signInPassword) {
+      errors.signInPassword = "Password is required";
+    } else if (credentials.signInPassword.length < 8) {
+      errors.signInPassword = "Password must be longer than 8 characters";
+    }
   }
 
   return errors;

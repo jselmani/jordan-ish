@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -7,9 +8,12 @@ import jordanLogo from "../../images/jordan-logo-white.png";
 
 import "./NavBar.styles.scss";
 import CartIcon from "../CartIcon/CartIcon.component";
+
+import { signOutStart } from "../../redux/user/user.actions";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 import useViewport from "../../hooks/useViewport";
 
-const LargeScreenNavBar = () => {
+const LargeScreenNavBar = ({ currentUser, handleSignOut }) => {
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
@@ -22,9 +26,15 @@ const LargeScreenNavBar = () => {
         <Link className="option" to="/">
           <span>ABOUT</span>
         </Link>
-        <Link className="option" to="/signin">
-          <span>SIGN IN</span>
-        </Link>
+        {currentUser ? (
+          <div className="option" onClick={handleSignOut}>
+            <span>SIGN OUT</span>
+          </div>
+        ) : (
+          <Link className="option" to="/signin">
+            <span>SIGN IN</span>
+          </Link>
+        )}
         <Link className="option" to="/checkout">
           <CartIcon />
         </Link>
@@ -33,7 +43,7 @@ const LargeScreenNavBar = () => {
   );
 };
 
-const SmallScreenNavBar = () => {
+const SmallScreenNavBar = ({ currentUser, handleSignOut }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -90,19 +100,39 @@ const SmallScreenNavBar = () => {
         <Link className="menu-list-item" to="/" onClick={handleClick}>
           <span>ABOUT</span>
         </Link>
-        <Link className="menu-list-item" to="/signin" onClick={handleClick}>
-          <span>SIGN IN</span>
-        </Link>
+        {currentUser ? (
+          <div className="menu-list-item" onClick={handleSignOut}>
+            <span>SIGN OUT</span>
+          </div>
+        ) : (
+          <Link className="menu-list-item" to="/signin" onClick={handleClick}>
+            <span>SIGN IN</span>
+          </Link>
+        )}
       </motion.div>
     </div>
   );
 };
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
+  const handleSignOut = () => dispatch(signOutStart());
+
   const width = useViewport();
   const breakpoint = 840;
 
-  return width > breakpoint ? <LargeScreenNavBar /> : <SmallScreenNavBar />;
+  return width > breakpoint ? (
+    <LargeScreenNavBar
+      currentUser={currentUser}
+      handleSignOut={handleSignOut}
+    />
+  ) : (
+    <SmallScreenNavBar
+      currentUser={currentUser}
+      handleSignOut={handleSignOut}
+    />
+  );
 };
 
 export default NavBar;

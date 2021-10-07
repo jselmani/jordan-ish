@@ -10,9 +10,15 @@ import useForm from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
 const SignUp = ({ handleClick }) => {
-  const { handleChange, userCreds, handleSubmit, errors } =
-    useForm(validateCredentials);
-  const { displayName, email, password, confirmPassword } = userCreds;
+  const type = "sign-up";
+
+  const { handleChange, signUpCreds, handleSubmit, errors } = useForm(
+    validateCredentials,
+    type
+  );
+
+  const { displayName, signUpEmail, signUpPassword, signUpConfirmPassword } =
+    signUpCreds;
 
   return (
     <div className="sign-up">
@@ -37,35 +43,37 @@ const SignUp = ({ handleClick }) => {
           <span className="sign-up-error">{errors.displayName}</span>
         )}
         <FormInput
-          name="email"
+          name="signUpEmail"
           type="email"
-          value={email}
+          value={signUpEmail}
           onChange={handleChange}
           label="Email"
           required
         />
-        {errors.email && <span className="sign-up-error">{errors.email}</span>}
+        {errors.signUpEmail && (
+          <span className="sign-up-error">{errors.signUpEmail}</span>
+        )}
         <FormInput
-          name="password"
+          name="signUpPassword"
           type="password"
-          value={password}
+          value={signUpPassword}
           onChange={handleChange}
           label="Password"
           required
         />
-        {errors.password && (
-          <span className="sign-up-error">{errors.password}</span>
+        {errors.signUpPassword && (
+          <span className="sign-up-error">{errors.signUpPassword}</span>
         )}
         <FormInput
-          name="confirmPassword"
+          name="signUpConfirmPassword"
           type="password"
-          value={confirmPassword}
+          value={signUpConfirmPassword}
           onChange={handleChange}
           label="Confirm Password"
           required
         />
-        {errors.confirmPassword && (
-          <span className="sign-up-error">{errors.confirmPassword}</span>
+        {errors.signUpConfirmPassword && (
+          <span className="sign-up-error">{errors.signUpConfirmPassword}</span>
         )}
         <div className="button-container">
           <CustomButton

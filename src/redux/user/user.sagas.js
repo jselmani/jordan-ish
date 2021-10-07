@@ -1,9 +1,16 @@
 import { takeLatest, put, all, call } from "redux-saga/effects";
+import { getDoc } from "firebase/firestore";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 import UserActionTypes from "./user.types";
-import firebase, {
+import {
   createUserProfileDocument,
   getCurrentUser,
+  auth,
 } from "../../firebase/firebase.utils";
 
 import {
@@ -15,21 +22,14 @@ import {
   signUpSuccess,
 } from "./user.actions";
 
-const { auth } = firebase;
-
-function* getSnapshotFromUserAuth(userAuth, data) {
+// SIGN IN
+function* signInWithEmail({ payload: { signInEmail, signInPassword } }) {
   try {
-    const userRef = yield call(createUserProfileDocument, userAuth, data);
-    const userSnapshot = yield userRef.get();
-    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
-  } catch (error) {
-    yield put(signInFailure(error));
-  }
-}
-
-function* signInWithEmail({ payload: { email, password } }) {
-  try {
-    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    const { user } = yield signInWithEmailAndPassword(
+      auth,
+      signInEmail,
+      signInPassword
+    );
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
     yield put(signInFailure(error));
@@ -40,9 +40,10 @@ function* onEmailSignInStart() {
   yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
 }
 
-export function* signOut() {
+// SIGN OUT
+export function* signUserOut() {
   try {
-    yield auth.signOut();
+    yield signOut(auth);
     yield put(signOutSuccess());
   } catch (error) {
     yield put(signOutFailure(error));
@@ -50,12 +51,20 @@ export function* signOut() {
 }
 
 export function* onSignOutStart() {
-  yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut);
+  yield takeLatest(UserActionTypes.SIGN_OUT_START, signUserOut);
 }
 
-export function* signUp({ payload: { email, password, displayName } }) {
+// SIGN UP
+export function* signUp({
+  payload: { signUpEmail, signUpPassword, displayName },
+}) {
   try {
-    const { user } = yield auth.createUserWithEmailAndPassword(email, password);
+    debugger;
+    const { user } = yield createUserWithEmailAndPassword(
+      auth,
+      signUpEmail,
+      signUpPassword
+    );
     yield put(signUpSuccess({ user, additionalData: { displayName } }));
   } catch (error) {
     yield put(signUpFailure(error));
@@ -74,6 +83,7 @@ export function* onSignUpStart() {
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUp);
 }
 
+// AUTH CHECKS
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield getCurrentUser();
@@ -87,6 +97,23 @@ export function* isUserAuthenticated() {
 export function* onCheckUserSession() {
   yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
 }
+
+// RETRIEVE SNAPSHOT
+function* getSnapshotFromUserAuth(userAuth, data) {
+  try {
+    const userRef = yield call(createUserProfileDocument, userAuth, data);
+    const userSnapshot = yield getDoc(userRef);
+    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+  } catch (error) {
+    yield put(signInFailure(error));
+  }
+}
+
+/**
+ * TODO:
+ * Write generator function to set another action that sends an error code to
+ * user that informs them that the credentials are wrong
+ */
 
 export function* userSagas() {
   yield all([
