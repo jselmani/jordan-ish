@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAkbkf44jJ1a6UbYihX5l2CeNZ1ZFK2B4",
@@ -10,6 +10,10 @@ const firebaseConfig = {
   messagingSenderId: "334237205687",
   appId: "1:334237205687:web:3c459a3ccfd94054e83932",
 };
+
+const firebase = initializeApp(firebaseConfig);
+export const auth = getAuth(firebase);
+export const firestore = getFirestore(firebase);
 
 export const createUserProfileDocument = async (userAuth, data) => {
   if (!userAuth) return;
@@ -43,10 +47,5 @@ export const getCurrentUser = () => {
     }, reject);
   });
 };
-
-firebase.initializeApp(firebaseConfig);
-
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
 
 export default firebase;

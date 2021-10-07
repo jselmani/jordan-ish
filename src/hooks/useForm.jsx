@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-const useForm = (callback, validateCredentials) => {
+const useForm = (validateCredentials) => {
   const [userCreds, setUserCreds] = useState({
     displayName: "",
     email: "",

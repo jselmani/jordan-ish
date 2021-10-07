@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import "./App.css";
@@ -18,11 +18,19 @@ import ViewportProvider from "./contexts/viewportcontext";
 
 import { fetchAllShoesStart } from "./redux/shop/shop.actions";
 
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import { checkUserSession } from "./redux/user/user.actions";
+
 const App = () => {
   const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
 
   useEffect(() => {
     dispatch(fetchAllShoesStart());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(checkUserSession());
   }, [dispatch]);
 
   return (
@@ -38,7 +46,13 @@ const App = () => {
             path="/products/:productId"
             component={ProductDetailsPage}
           />
-          <Route exact path="/signin" component={SignInSignUpPage} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              currentUser ? <Redirect to="/" /> : <SignInSignUpPage />
+            }
+          />
           <Route exact path="/checkout" component={CheckoutPage} />
         </Switch>
         <Footer />
