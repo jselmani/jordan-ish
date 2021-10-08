@@ -3,6 +3,11 @@ import { useDispatch } from "react-redux";
 
 import { signUpStart, emailSignInStart } from "../redux/user/user.actions";
 
+export const FormTypes = {
+  SIGN_IN: "SIGN_IN",
+  SIGN_UP: "SIGN_UP",
+};
+
 const useForm = (validateCredentials, type) => {
   const dispatch = useDispatch();
   const [signUpCreds, setSignUpCreds] = useState({
@@ -25,12 +30,12 @@ const useForm = (validateCredentials, type) => {
   const handleChange = (event) => {
     const { value, name } = event.target;
 
-    if (type === "sign-up") {
+    if (type === FormTypes.SIGN_UP) {
       setSignUpCreds({
         ...signUpCreds,
         [name]: value,
       });
-    } else if (type === "sign-in") {
+    } else if (type === FormTypes.SIGN_IN) {
       setSignInCreds({
         ...signInCreds,
         [name]: value,
@@ -43,18 +48,18 @@ const useForm = (validateCredentials, type) => {
 
     let errorCheck;
 
-    if (type === "sign-up") {
+    if (type === FormTypes.SIGN_UP) {
       errorCheck = validateCredentials(signUpCreds, type);
-    } else if (type === "sign-in") {
+    } else if (type === FormTypes.SIGN_IN) {
       errorCheck = validateCredentials(signInCreds, type);
     }
 
     setErrors(errorCheck);
 
     if (Object.keys(errorCheck).length === 0) {
-      if (type === "sign-up") {
+      if (type === FormTypes.SIGN_UP) {
         dispatch(signUpStart({ signUpEmail, signUpPassword, displayName }));
-      } else if (type === "sign-in") {
+      } else if (type === FormTypes.SIGN_IN) {
         dispatch(emailSignInStart({ signInEmail, signInPassword }));
       }
     }

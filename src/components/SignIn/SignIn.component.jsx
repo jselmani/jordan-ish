@@ -6,11 +6,11 @@ import "./SignIn.styles.scss";
 import CustomButton from "../CustomButton/CustomButton.component";
 import FormInput from "../FormInput/FormInput.component";
 
-import useForm from "../../hooks/useForm";
+import useForm, { FormTypes } from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
 const SignIn = ({ handleClick }) => {
-  const type = "sign-in";
+  const type = FormTypes.SIGN_IN;
 
   const { handleChange, signInCreds, handleSubmit, errors } = useForm(
     validateCredentials,

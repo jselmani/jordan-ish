@@ -59,20 +59,19 @@ export function* signUp({
   payload: { signUpEmail, signUpPassword, displayName },
 }) {
   try {
-    debugger;
     const { user } = yield createUserWithEmailAndPassword(
       auth,
       signUpEmail,
       signUpPassword
     );
-    yield put(signUpSuccess({ user, additionalData: { displayName } }));
+    yield put(signUpSuccess({ user, data: { displayName } }));
   } catch (error) {
     yield put(signUpFailure(error));
   }
 }
 
-export function* signInAfterSignUp({ payload: { user, additionalData } }) {
-  yield getSnapshotFromUserAuth(user, additionalData);
+export function* signInAfterSignUp({ payload: { user, data } }) {
+  yield getSnapshotFromUserAuth(user, data);
 }
 
 export function* onSignUpSuccess() {

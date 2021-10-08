@@ -13,7 +13,7 @@ import { signOutStart } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import useViewport from "../../hooks/useViewport";
 
-const LargeScreenNavBar = ({ currentUser, handleSignOut }) => {
+const LargeScreenNavBar = ({ currentUser, dispatch }) => {
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
@@ -27,7 +27,7 @@ const LargeScreenNavBar = ({ currentUser, handleSignOut }) => {
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
-          <div className="option" onClick={handleSignOut}>
+          <div className="option" onClick={() => dispatch(signOutStart())}>
             <span>SIGN OUT</span>
           </div>
         ) : (
@@ -43,7 +43,7 @@ const LargeScreenNavBar = ({ currentUser, handleSignOut }) => {
   );
 };
 
-const SmallScreenNavBar = ({ currentUser, handleSignOut }) => {
+const SmallScreenNavBar = ({ currentUser, dispatch }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -51,6 +51,11 @@ const SmallScreenNavBar = ({ currentUser, handleSignOut }) => {
     isOpen
       ? (document.body.style.overflow = "auto")
       : (document.body.style.overflow = "hidden");
+  };
+
+  const handleSignOut = () => {
+    dispatch(signOutStart());
+    setIsOpen(!isOpen);
   };
 
   const iconVariants = {
@@ -117,21 +122,14 @@ const SmallScreenNavBar = ({ currentUser, handleSignOut }) => {
 const NavBar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const handleSignOut = () => dispatch(signOutStart());
 
   const width = useViewport();
-  const breakpoint = 840;
+  const breakpoint = 900;
 
   return width > breakpoint ? (
-    <LargeScreenNavBar
-      currentUser={currentUser}
-      handleSignOut={handleSignOut}
-    />
+    <LargeScreenNavBar currentUser={currentUser} dispatch={dispatch} />
   ) : (
-    <SmallScreenNavBar
-      currentUser={currentUser}
-      handleSignOut={handleSignOut}
-    />
+    <SmallScreenNavBar currentUser={currentUser} dispatch={dispatch} />
   );
 };
 

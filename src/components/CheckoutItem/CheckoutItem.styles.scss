@@ -1,0 +1,119 @@
+.checkout-item {
+  width: 100%;
+  display: flex;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+
+  .checkout-item-details {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .checkout-item-name-price {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .checkout-item-tag-size {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .checkout-item-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+
+      .checkout-item-remove {
+        color: grey;
+
+        span {
+          border-bottom: 1px solid lightgrey;
+
+          &:hover {
+            color: red;
+            cursor: pointer;
+            border-bottom: 1px solid red;
+          }
+        }
+      }
+
+      .checkout-item-quantity {
+        .quantity {
+          display: flex;
+
+          .arrow {
+            cursor: pointer;
+          }
+
+          .value {
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .checkout-item {
+    .checkout-item-image {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 30%;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .checkout-item-details {
+      .checkout-item-name-price {
+        font-size: 16px;
+      }
+
+      .checkout-item-tag-size,
+      .checkout-item-gender {
+        margin: 0.1rem 0;
+        font-size: 14px;
+      }
+
+      .checkout-item-footer {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .checkout-item {
+    .checkout-item-image {
+      width: 35%;
+    }
+
+    .checkout-item-details {
+      .checkout-item-name-price {
+        font-size: 20px;
+      }
+
+      .checkout-item-tag-size,
+      .checkout-item-gender {
+        margin: 0.1rem 0;
+        font-size: 18px;
+      }
+
+      .checkout-item-footer {
+        font-size: 18px;
+      }
+    }
+  }
+}

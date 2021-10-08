@@ -6,11 +6,11 @@ import "./SignUp.styles.scss";
 import FormInput from "../FormInput/FormInput.component";
 import CustomButton from "../CustomButton/CustomButton.component";
 
-import useForm from "../../hooks/useForm";
+import useForm, { FormTypes } from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
 const SignUp = ({ handleClick }) => {
-  const type = "sign-up";
+  const type = FormTypes.SIGN_UP;
 
   const { handleChange, signUpCreds, handleSubmit, errors } = useForm(
     validateCredentials,
