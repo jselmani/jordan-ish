@@ -1,30 +1,29 @@
 .product-image-carousel {
+  height: auto;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: black;
+  }
+
+  .swiper-slide-thumb-active {
+    img {
+      border: 1px solid black;
+    }
+  }
+
+  .large-product-image {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .thumb-product-image {
     height: auto;
+    width: 100%;
+    object-fit: contain;
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: black;
+    &:hover {
+      cursor: pointer;
     }
-
-    .swiper-slide-thumb-active {
-        img {
-            border: 1px solid black;
-        }
-    }
-
-    .large-product-image {
-        height: auto;
-        width: 100%;
-        object-fit: contain;
-    }
-
-    .thumb-product-image {
-        height: auto;
-        width: 100%;
-        object-fit: contain;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
+  }
 }
