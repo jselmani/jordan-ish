@@ -10,6 +10,7 @@ import ShopPage from "./pages/ShopPage/ShopPage.component";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.component";
 import SignInSignUpPage from "./pages/SignInSignUpPage/SignInSignUp.component";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.component";
 
 import NavBar from "./components/NavBar/NavBar.component";
 import Footer from "./components/Footer/Footer.component";
@@ -38,6 +39,7 @@ const App = () => {
       <ViewportProvider>
         <Toaster position="bottom-center" />
         <NavBar />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
