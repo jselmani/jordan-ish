@@ -18,7 +18,9 @@ const CheckoutPage = () => {
     <div className="checkout-page">
       <h1 className="checkout-page-title">BAG</h1>
       {!cartItems.length ? (
-        <h2>NO JAY'S HERE. GO GET SOME, HOOPER.</h2>
+        <h2 className="checkout-page-empty">
+          NO JAY'S HERE. GO GET SOME, HOOPER.
+        </h2>
       ) : (
         <div className="checkout-page-content">
           <div className="checkout-page-cart">
