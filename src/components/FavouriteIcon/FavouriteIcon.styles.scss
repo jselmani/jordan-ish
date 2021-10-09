@@ -1,0 +1,22 @@
+.favourite-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .heart {
+    width: 28px;
+    height: 28px;
+  }
+
+  .item-count {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 700;
+    bottom: 2px;
+    color: black;
+  }
+}
