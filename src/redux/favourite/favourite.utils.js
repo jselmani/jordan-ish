@@ -11,7 +11,10 @@ export const addItemToFavourite = (favouriteItems, favouriteItemToAdd) => {
   return [...favouriteItems];
 };
 
-export const removeItemFromCart = (favouriteItems, favouriteItemToRemove) => {
+export const removeItemFromFavourite = (
+  favouriteItems,
+  favouriteItemToRemove
+) => {
   const existingFavouriteItem = favouriteItems.find(
     (favouriteItem) =>
       favouriteItem.specificId === favouriteItemToRemove.specificId

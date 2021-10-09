@@ -14,9 +14,9 @@ const SignInSignUpPage = () => {
   return (
     <div className="sign-in-sign-up-page">
       {isSignIn ? (
-        <SignIn handleClick={handleClick} />
+        <SignIn isModal={false} handleClick={handleClick} />
       ) : (
-        <SignUp handleClick={handleClick} />
+        <SignUp isModal={false} handleClick={handleClick} />
       )}
     </div>
   );

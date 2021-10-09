@@ -10,11 +10,13 @@ import ShopPage from "./pages/ShopPage/ShopPage.component";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.component";
 import SignInSignUpPage from "./pages/SignInSignUpPage/SignInSignUp.component";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop.component";
+import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.component";
 
 import NavBar from "./components/NavBar/NavBar.component";
 import Footer from "./components/Footer/Footer.component";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.component";
 
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.component";
 import ViewportProvider from "./contexts/viewportcontext";
 
 import { fetchAllShoesStart } from "./redux/shop/shop.actions";
@@ -56,6 +58,12 @@ const App = () => {
             }
           />
           <Route exact path="/checkout" component={CheckoutPage} />
+          <ProtectedRoute
+            exact
+            path="/favourites"
+            currentUser={currentUser}
+            component={FavouritesPage}
+          />
         </Switch>
         <Footer />
       </ViewportProvider>

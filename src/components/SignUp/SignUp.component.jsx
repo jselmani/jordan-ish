@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTimes } from "react-icons/fa";
 
 import jordanLogoBlack from "../../images/jordan-logo-black.png";
 
@@ -9,7 +10,7 @@ import CustomButton from "../CustomButton/CustomButton.component";
 import useForm, { FormTypes } from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
-const SignUp = ({ handleClick }) => {
+const SignUp = ({ handleClick, isModal }) => {
   const type = FormTypes.SIGN_UP;
 
   const { handleChange, signUpCreds, handleSubmit, errors } = useForm(
@@ -22,6 +23,11 @@ const SignUp = ({ handleClick }) => {
 
   return (
     <div className="sign-up">
+      {isModal && (
+        <div className="sign-up-close-modal">
+          <FaTimes className="close-button" />
+        </div>
+      )}
       <div className="sign-up-logo">
         <img src={jordanLogoBlack} alt="Jordan Logo" />
       </div>
