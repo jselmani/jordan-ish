@@ -9,12 +9,13 @@ import jordanLogo from "../../images/jordan-logo-white.png";
 import "./NavBar.styles.scss";
 import CartIcon from "../CartIcon/CartIcon.component";
 import FavouriteIcon from "../FavouriteIcon/FavouriteIcon.component";
+import Modal from "../Modal/Modal.component";
 
 import { signOutStart } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import useViewport from "../../hooks/useViewport";
 
-const LargeScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
+const LargeScreenNavBar = ({ currentUser, dispatch }) => {
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
@@ -41,7 +42,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
             <FavouriteIcon currentUser={currentUser} />
           </Link>
         ) : (
-          <div className="option" onClick={handleModalClick}>
+          <div className="option">
             <FavouriteIcon currentUser={currentUser} />
           </div>
         )}
@@ -53,7 +54,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
   );
 };
 
-const SmallScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
+const SmallScreenNavBar = ({ currentUser, dispatch }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -88,7 +89,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
             <FavouriteIcon currentUser={currentUser} />
           </Link>
         ) : (
-          <div className="option" onClick={handleModalClick}>
+          <div className="option">
             <FavouriteIcon currentUser={currentUser} />
           </div>
         )}
@@ -143,32 +144,16 @@ const SmallScreenNavBar = ({ currentUser, dispatch, handleModalClick }) => {
 };
 
 const NavBar = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-
-  const handleModalClick = () => {
-    setIsModalOpen(!isModalOpen);
-    isModalOpen
-      ? (document.body.style.overflow = "auto")
-      : (document.body.style.overflow = "hidden");
-  };
 
   const width = useViewport();
   const breakpoint = 900;
 
   return width > breakpoint ? (
-    <LargeScreenNavBar
-      currentUser={currentUser}
-      handleModalClick={handleModalClick}
-      dispatch={dispatch}
-    />
+    <LargeScreenNavBar currentUser={currentUser} dispatch={dispatch} />
   ) : (
-    <SmallScreenNavBar
-      currentUser={currentUser}
-      handleModalClick={handleModalClick}
-      dispatch={dispatch}
-    />
+    <SmallScreenNavBar currentUser={currentUser} dispatch={dispatch} />
   );
 };
 

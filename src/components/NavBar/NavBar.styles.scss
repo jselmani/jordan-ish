@@ -5,6 +5,8 @@
   background-color: black;
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 
   .logo-container {
     width: 125px;
