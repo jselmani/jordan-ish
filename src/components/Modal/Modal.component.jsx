@@ -4,7 +4,7 @@ import "./Modal.styles.scss";
 import SignIn from "../SignIn/SignIn.component";
 import SignUp from "../SignUp/SignUp.component";
 
-const Modal = ({ handleModalClick }) => {
+const Modal = () => {
   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleClick = () => {
@@ -13,21 +13,11 @@ const Modal = ({ handleModalClick }) => {
 
   return (
     <div className="modal">
-      <div className="modal-container">
-        {isSignIn ? (
-          <SignIn
-            isModal={true}
-            handleModalClick={handleModalClick}
-            handleClick={handleClick}
-          />
-        ) : (
-          <SignUp
-            isModal={true}
-            handleModalClick={handleModalClick}
-            handleClick={handleClick}
-          />
-        )}
-      </div>
+      {isSignIn ? (
+        <SignIn isModal={true} handleClick={handleClick} />
+      ) : (
+        <SignUp isModal={true} handleClick={handleClick} />
+      )}
     </div>
   );
 };

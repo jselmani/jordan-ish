@@ -11,17 +11,23 @@ import CartIcon from "../CartIcon/CartIcon.component";
 import FavouriteIcon from "../FavouriteIcon/FavouriteIcon.component";
 import Modal from "../Modal/Modal.component";
 
-import { signOutStart } from "../../redux/user/user.actions";
-import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { signOutStart, toggleModalHidden } from "../../redux/user/user.actions";
+import {
+  selectCurrentUser,
+  selectShowModal,
+} from "../../redux/user/user.selectors";
 import useViewport from "../../hooks/useViewport";
 
-const LargeScreenNavBar = ({ currentUser, dispatch }) => {
+const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
       <div className="options">
+        <Link className="option" to="/">
+          <span>HOME</span>
+        </Link>
         <Link className="option" to="/shop">
           <span>SHOP</span>
         </Link>
@@ -42,7 +48,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch }) => {
             <FavouriteIcon currentUser={currentUser} />
           </Link>
         ) : (
-          <div className="option">
+          <div className="option" onClick={() => dispatch(toggleModalHidden())}>
             <FavouriteIcon currentUser={currentUser} />
           </div>
         )}
@@ -50,11 +56,12 @@ const LargeScreenNavBar = ({ currentUser, dispatch }) => {
           <CartIcon />
         </Link>
       </div>
+      {showModal && <Modal />}
     </div>
   );
 };
 
-const SmallScreenNavBar = ({ currentUser, dispatch }) => {
+const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -66,7 +73,6 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
 
   const handleSignOut = () => {
     dispatch(signOutStart());
-    setIsMenuOpen(!isMenuOpen);
   };
 
   const iconVariants = {
@@ -83,13 +89,14 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
+      {showModal && <Modal />}
       <div className="options">
         {currentUser ? (
           <Link className="option" to="/favourites">
             <FavouriteIcon currentUser={currentUser} />
           </Link>
         ) : (
-          <div className="option">
+          <div className="option" onClick={() => dispatch(toggleModalHidden())}>
             <FavouriteIcon currentUser={currentUser} />
           </div>
         )}
@@ -119,6 +126,9 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
           duration: 0.25,
         }}
       >
+        <Link className="menu-list-item" to="/" onClick={handleMenuClick}>
+          <span>HOME</span>
+        </Link>
         <Link className="menu-list-item" to="/shop" onClick={handleMenuClick}>
           <span>SHOP</span>
         </Link>
@@ -146,14 +156,23 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
 const NavBar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
+  const showModal = useSelector(selectShowModal);
 
   const width = useViewport();
   const breakpoint = 900;
 
   return width > breakpoint ? (
-    <LargeScreenNavBar currentUser={currentUser} dispatch={dispatch} />
+    <LargeScreenNavBar
+      currentUser={currentUser}
+      dispatch={dispatch}
+      showModal={showModal}
+    />
   ) : (
-    <SmallScreenNavBar currentUser={currentUser} dispatch={dispatch} />
+    <SmallScreenNavBar
+      currentUser={currentUser}
+      dispatch={dispatch}
+      showModal={showModal}
+    />
   );
 };
 
