@@ -19,15 +19,16 @@ import {
 import useViewport from "../../hooks/useViewport";
 
 const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
+  const handleSignOut = () => {
+    dispatch(signOutStart());
+  };
+
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
       <div className="options">
-        <Link className="option" to="/">
-          <span>HOME</span>
-        </Link>
         <Link className="option" to="/shop">
           <span>SHOP</span>
         </Link>
@@ -35,7 +36,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
-          <div className="option" onClick={() => dispatch(signOutStart())}>
+          <div className="option" onClick={handleSignOut}>
             <span>SIGN OUT</span>
           </div>
         ) : (
@@ -126,9 +127,6 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
           duration: 0.25,
         }}
       >
-        <Link className="menu-list-item" to="/" onClick={handleMenuClick}>
-          <span>HOME</span>
-        </Link>
         <Link className="menu-list-item" to="/shop" onClick={handleMenuClick}>
           <span>SHOP</span>
         </Link>

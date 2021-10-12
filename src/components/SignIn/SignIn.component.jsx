@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTimes } from "react-icons/fa";
 
@@ -11,13 +11,21 @@ import FormInput from "../FormInput/FormInput.component";
 import useForm, { FormTypes } from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
-import { toggleModalHidden } from "../../redux/user/user.actions";
+import { toggleModalHidden, clearErrors } from "../../redux/user/user.actions";
 import { selectErrorMessage } from "../../redux/user/user.selectors";
 
 const SignIn = ({ handleClick, isModal }) => {
   const dispatch = useDispatch();
   const signInError = useSelector(selectErrorMessage);
   const type = FormTypes.SIGN_IN;
+
+  useEffect(() => {
+    if (signInError) {
+      setTimeout(() => {
+        dispatch(clearErrors());
+      }, 3000);
+    }
+  }, [dispatch, signInError]);
 
   const { handleChange, signInCreds, handleSubmit, errors } = useForm(
     validateCredentials,

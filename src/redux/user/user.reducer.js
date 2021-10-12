@@ -13,6 +13,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         showModal: !state.showModal,
       };
+    case UserActionTypes.CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
     case UserActionTypes.SIGN_IN_SUCCESS:
       return {
         ...state,

@@ -10,6 +10,7 @@ const UserActionTypes = {
   SIGN_UP_SUCCESS: "SIGN_UP_SUCCESS",
   SIGN_UP_FAILURE: "SIGN_UP_FAILURE",
   TOGGLE_MODAL_HIDDEN: "TOGGLE_MODAL_HIDDEN",
+  CLEAR_ERRORS: "CLEAR_ERRORS",
 };
 
 export default UserActionTypes;
