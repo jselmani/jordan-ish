@@ -16,6 +16,9 @@ import {
   selectCurrentUser,
   selectShowModal,
 } from "../../redux/user/user.selectors";
+
+import { ModalFlow } from "../../helpers/ModalFlow";
+
 import useViewport from "../../hooks/useViewport";
 
 const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
@@ -57,7 +60,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
           <CartIcon />
         </Link>
       </div>
-      {showModal && <Modal />}
+      {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
     </div>
   );
 };
@@ -90,7 +93,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
-      {showModal && <Modal />}
+      {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
       <div className="options">
         {currentUser ? (
           <Link className="option" to="/favourites">
