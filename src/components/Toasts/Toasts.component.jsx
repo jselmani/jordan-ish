@@ -1,15 +1,22 @@
 import React from "react";
 import toast from "react-hot-toast";
 
-import "./Toasts.styles.scss";
 import jordanLogo from "../../images/jordan-logo-black.png";
+
+import "./Toasts.styles.scss";
 import CustomButton from "../CustomButton/CustomButton.component";
+
+import { ProductType } from "../../helpers/ProductType";
 
 export const SuccessToast = (shoe, t) => (
   <div className="success-toast">
     <div className="success-toast-header">
       <img src={jordanLogo} alt="jordan-logo" />
-      <h3>PRODUCT ADDED TO BAG</h3>
+      {shoe.toastType === ProductType.CART ? (
+        <h3>PRODUCT ADDED TO BAG</h3>
+      ) : (
+        <h3>ADDED TO FAVOURITES</h3>
+      )}
     </div>
     <div className="success-toast-content">
       <div className="success-toast-image">
@@ -25,7 +32,11 @@ export const SuccessToast = (shoe, t) => (
           ${shoe.price} | {shoe.gender}
         </span>
         <span className="success-toast-tag">{shoe.tag}</span>
-        <span className="success-toast-size">SIZE: {shoe.size}</span>
+        {shoe.toastType === ProductType.CART ? (
+          <span className="success-toast-size">SIZE: {shoe.size}</span>
+        ) : (
+          <div />
+        )}
       </div>
     </div>
     <CustomButton style={{ width: "100%" }} onClick={() => toast.dismiss(t.id)}>

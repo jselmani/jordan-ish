@@ -7,12 +7,15 @@ const INITIAL_STATE = {
 
 const favouriteReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case FavouriteActionTypes.ADD_ITEM:
+    case FavouriteActionTypes.ADD_ITEM_TO_FAVOURITE:
       return {
         ...state,
-        cartItems: addItemToFavourite(state.favouriteItems, action.payload),
+        favouriteItems: addItemToFavourite(
+          state.favouriteItems,
+          action.payload
+        ),
       };
-    case FavouriteActionTypes.REMOVE_ITEM:
+    case FavouriteActionTypes.REMOVE_ITEM_FROM_FAVOURITE:
       return {
         ...state,
         favouriteItems: removeItemFromFavourite(

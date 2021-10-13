@@ -1,15 +1,15 @@
 import FavouriteActionTypes from "./favourite.types";
 
-export const addItem = (item) => {
+export const addFavouriteItem = (item) => {
   return {
-    type: FavouriteActionTypes.ADD_ITEM,
+    type: FavouriteActionTypes.ADD_ITEM_TO_FAVOURITE,
     payload: item,
   };
 };
 
-export const removeItem = (item) => {
+export const removeFavouriteItem = (item) => {
   return {
-    type: FavouriteActionTypes.REMOVE_ITEM,
+    type: FavouriteActionTypes.REMOVE_ITEM_FROM_FAVOURITE,
     payload: item,
   };
 };
