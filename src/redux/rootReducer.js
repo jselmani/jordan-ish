@@ -11,7 +11,7 @@ import favouriteReducer from "./favourite/favourite.reducer";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"],
+  whitelist: ["cart", "favourite"],
 };
 
 const rootReducer = combineReducers({
