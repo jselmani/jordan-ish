@@ -1,3 +1,72 @@
+.product-card {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  margin: 5px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+
+  &.favourite {
+    margin-bottom: 75px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(98%);
+  }
+
+  .primary-image,
+  .secondary-image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .secondary-image {
+    position: absolute;
+  }
+
+  .tag {
+    background-color: lightgrey;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 3px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    z-index: 0;
+  }
+
+  .product-content {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    .product-price,
+    .product-gender {
+      padding-left: 10px;
+      text-transform: uppercase;
+    }
+
+    .product-name {
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-left: 10px;
+    }
+  }
+
+  .product-buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 10rem) {
   .product-card {
     width: 45%;
@@ -62,7 +131,7 @@
 @media screen and (min-width: 56rem) {
   .product-card {
     width: 30%;
-    flex: 1 1 21%;
+    flex: 0.5 1 20%;
 
     .primary-image,
     .secondary-image {
@@ -76,63 +145,6 @@
       .product-name {
         font-size: 16px;
       }
-    }
-  }
-}
-
-.product-card {
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  margin: 5px;
-  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
-
-  &:hover {
-    cursor: pointer;
-    filter: brightness(98%);
-  }
-
-  .primary-image,
-  .secondary-image {
-    max-width: 100%;
-    object-fit: cover;
-  }
-
-  .secondary-image {
-    position: absolute;
-  }
-
-  .tag {
-    background-color: lightgrey;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 3px;
-    text-align: center;
-    position: absolute;
-    right: 0;
-    margin: 10px;
-    z-index: 0;
-  }
-
-  .product-content {
-    z-index: 1;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-
-    .product-price,
-    .product-gender {
-      padding-left: 10px;
-      text-transform: uppercase;
-    }
-
-    .product-name {
-      font-weight: 600;
-      text-transform: uppercase;
-      padding-left: 10px;
     }
   }
 }

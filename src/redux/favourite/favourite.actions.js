@@ -7,13 +7,6 @@ export const addFavouriteItem = (item) => {
   };
 };
 
-export const removeFavouriteItem = (item) => {
-  return {
-    type: FavouriteActionTypes.REMOVE_ITEM_FROM_FAVOURITE,
-    payload: item,
-  };
-};
-
 export const clearItemFromFavourites = (item) => {
   return {
     type: FavouriteActionTypes.CLEAR_ITEM_FROM_FAVOURITE,

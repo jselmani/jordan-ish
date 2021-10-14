@@ -39,7 +39,7 @@ export const SuccessToast = (shoe, t) => (
         )}
       </div>
     </div>
-    <CustomButton style={{ width: "100%" }} onClick={() => toast.dismiss(t.id)}>
+    <CustomButton maxWidth onClick={() => toast.dismiss(t.id)}>
       <h4>DISMISS</h4>
     </CustomButton>
   </div>
@@ -52,7 +52,7 @@ export const ErrorToast = (t) => (
       <h3>SELECT A SHOE SIZE</h3>
       <img src={jordanLogo} alt="jordan-logo" />
     </div>
-    <CustomButton style={{ width: "100%" }} onClick={() => toast.dismiss(t.id)}>
+    <CustomButton maxWidth onClick={() => toast.dismiss(t.id)}>
       <h4>DISMISS</h4>
     </CustomButton>
   </div>

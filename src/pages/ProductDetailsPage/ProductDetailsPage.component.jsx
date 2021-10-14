@@ -162,10 +162,11 @@ const ProductDetailsPage = () => {
             <div className="product-description">{description}</div>
           </form>
           <div className="product-buttons">
-            <CustomButton onClick={handleAddToCart}>
+            <CustomButton maxWidth onClick={handleAddToCart}>
               <h3>ADD TO BAG</h3>
             </CustomButton>
             <CustomButton
+              maxWidth
               onClick={currentUser ? handleAddToFavourites : dispatchModal}
               inverted
             >

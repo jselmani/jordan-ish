@@ -12,5 +12,44 @@
   }
 
   .favourites-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0 0.5rem;
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .favourites-page {
+    .favourites-content {
+      flex-wrap: wrap;
+
+      .favourites-page-empty {
+        text-align: center;
+        font-size: 20px;
+        margin: 25% 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .favourites-page {
+    .favourites-content {
+      justify-content: space-evenly;
+    }
+  }
+}
+
+@media screen and (min-width: 56rem) {
+  .favourites-page {
+    .favourites-content {
+      justify-content: space-evenly;
+      flex-wrap: nowrap;
+
+      .favourites-page-empty {
+        font-size: 32px;
+      }
+    }
   }
 }

@@ -1,9 +1,8 @@
 .custom-button {
-  min-width: 165px;
+  min-width: 120px;
   height: 60px;
-  padding: 0 35px 0 35px;
+  padding: 0 1rem 0 1rem;
   margin-top: 1rem;
-  font-size: 16px;
   background-color: black;
   color: white;
   text-transform: uppercase;
@@ -19,6 +18,15 @@
     border: 1px solid black;
   }
 
+  &.max-width {
+    width: 100%;
+  }
+
+  &.favourite {
+    margin-top: 5px;
+    height: 30px;
+  }
+
   &.inverted {
     background-color: white;
     color: black;
@@ -29,5 +37,17 @@
       color: white;
       border: none;
     }
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .custom-button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 56rem) {
+  .custom-button {
+    font-size: 16px;
   }
 }

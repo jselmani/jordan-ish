@@ -104,11 +104,7 @@ const SignUp = ({ handleClick, isModal }) => {
           <span className="sign-up-error">{errors.signUpConfirmPassword}</span>
         )}
         <div className="button-container">
-          <CustomButton
-            type="submit"
-            style={{ width: "100%" }}
-            onClick={handleSubmit}
-          >
+          <CustomButton type="submit" maxWidth onClick={handleSubmit}>
             SIGN UP
           </CustomButton>
         </div>

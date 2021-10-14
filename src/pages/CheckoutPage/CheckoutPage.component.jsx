@@ -48,7 +48,7 @@ const CheckoutPage = () => {
             </div>
             <div className="button-container">
               <CustomButton
-                style={{ width: "100%" }}
+                maxWidth
                 onClick={() => console.log("Implement Stripe")}
               >
                 PAY NOW
