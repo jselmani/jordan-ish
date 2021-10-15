@@ -15,6 +15,7 @@ import FavouritesPage from "./pages/FavouritesPage/FavouritesPage.component";
 import NavBar from "./components/NavBar/NavBar.component";
 import Footer from "./components/Footer/Footer.component";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.component";
+import Modal from "./components/Modal/Modal.component";
 
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.component";
 import ViewportProvider from "./contexts/viewportcontext";
@@ -24,9 +25,14 @@ import { fetchAllShoesStart } from "./redux/shop/shop.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 
+import { selectFavouriteModal } from "./redux/favourite/favourite.selectors";
+
+import { ModalFlow } from "./helpers/ModalFlow";
+
 const App = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
+  const showFavouriteModal = useSelector(selectFavouriteModal);
 
   useEffect(() => {
     dispatch(fetchAllShoesStart());
@@ -41,6 +47,7 @@ const App = () => {
       <ViewportProvider>
         <Toaster position="bottom-center" />
         <NavBar />
+        {showFavouriteModal && <Modal modalFlow={ModalFlow.FAVOURITE_FLOW} />}
         <ScrollToTop />
         <Switch>
           <Route exact path="/" component={HomePage} />

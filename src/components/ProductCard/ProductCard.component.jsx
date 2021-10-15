@@ -4,7 +4,10 @@ import { useDispatch } from "react-redux";
 import "./ProductCard.styles.scss";
 import CustomButton from "../CustomButton/CustomButton.component";
 
-import { clearItemFromFavourites } from "../../redux/favourite/favourite.actions";
+import {
+  clearItemFromFavourites,
+  togglefavouriteModal,
+} from "../../redux/favourite/favourite.actions";
 
 const FavouriteCard = (props) => {
   const dispatch = useDispatch();
@@ -23,6 +26,10 @@ const FavouriteCard = (props) => {
 
   const handleRemoveItem = () => {
     dispatch(clearItemFromFavourites(props));
+  };
+
+  const handleToggleModal = () => {
+    dispatch(togglefavouriteModal(props));
   };
 
   return (
@@ -62,7 +69,7 @@ const FavouriteCard = (props) => {
         <CustomButton maxWidth favourite onClick={handleRemoveItem} inverted>
           REMOVE ITEM
         </CustomButton>
-        <CustomButton maxWidth favourite>
+        <CustomButton maxWidth favourite onClick={handleToggleModal}>
           CHOOSE SIZE
         </CustomButton>
       </div>

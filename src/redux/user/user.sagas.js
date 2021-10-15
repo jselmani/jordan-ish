@@ -108,12 +108,6 @@ function* getSnapshotFromUserAuth(userAuth, data) {
   }
 }
 
-/**
- * TODO:
- * Write generator function to set another action that sends an error code to
- * user that informs them that the credentials are wrong
- */
-
 export function* userSagas() {
   yield all([
     call(onEmailSignInStart),

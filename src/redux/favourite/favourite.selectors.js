@@ -11,3 +11,13 @@ export const selectFavouriteItemsCount = createSelector(
   selectFavouriteItems,
   (favouriteItems) => favouriteItems.length
 );
+
+export const selectFavouriteModal = createSelector(
+  selectFavourites,
+  (favourite) => favourite.showModal
+);
+
+export const selectModalItem = createSelector(
+  selectFavourites,
+  (favourites) => favourites.modalItem
+);
