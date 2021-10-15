@@ -38,3 +38,15 @@
     border: 1px solid black;
   }
 }
+
+@media screen and (min-width: 10rem) {
+  .custom-radio-button {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 56rem) {
+  .custom-radio-button {
+    font-size: 18px;
+  }
+}

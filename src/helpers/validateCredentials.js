@@ -1,7 +1,9 @@
+import { FormTypes } from "../hooks/useForm";
+
 export default function validateCredentials(credentials, type) {
   let errors = {};
 
-  if (type === "sign-up") {
+  if (type === FormTypes.SIGN_UP) {
     if (!credentials.displayName.trim()) {
       errors.displayName = "Display name required";
     }
@@ -25,7 +27,7 @@ export default function validateCredentials(credentials, type) {
     ) {
       errors.signUpConfirmPassword = "Passwords do not match";
     }
-  } else if (type === "sign-in") {
+  } else if (type === FormTypes.SIGN_IN) {
     if (!credentials.signInEmail) {
       errors.signInEmail = "Email required";
     } else if (!/\S+@\S+\.\S+/.test(credentials.signInEmail)) {

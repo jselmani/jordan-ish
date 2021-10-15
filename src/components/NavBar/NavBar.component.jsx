@@ -8,12 +8,24 @@ import jordanLogo from "../../images/jordan-logo-white.png";
 
 import "./NavBar.styles.scss";
 import CartIcon from "../CartIcon/CartIcon.component";
+import FavouriteIcon from "../FavouriteIcon/FavouriteIcon.component";
+import Modal from "../Modal/Modal.component";
 
-import { signOutStart } from "../../redux/user/user.actions";
-import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { signOutStart, toggleModalHidden } from "../../redux/user/user.actions";
+import {
+  selectCurrentUser,
+  selectShowModal,
+} from "../../redux/user/user.selectors";
+
+import { ModalFlow } from "../../helpers/ModalFlow";
+
 import useViewport from "../../hooks/useViewport";
 
-const LargeScreenNavBar = ({ currentUser, dispatch }) => {
+const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
+  const handleSignOut = () => {
+    dispatch(signOutStart());
+  };
+
   return (
     <div className="navbar">
       <Link className="logo-container" to="/">
@@ -27,7 +39,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch }) => {
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
-          <div className="option" onClick={() => dispatch(signOutStart())}>
+          <div className="option" onClick={handleSignOut}>
             <span>SIGN OUT</span>
           </div>
         ) : (
@@ -35,27 +47,36 @@ const LargeScreenNavBar = ({ currentUser, dispatch }) => {
             <span>SIGN IN</span>
           </Link>
         )}
+        {currentUser ? (
+          <Link className="option" to="/favourites">
+            <FavouriteIcon currentUser={currentUser} />
+          </Link>
+        ) : (
+          <div className="option" onClick={() => dispatch(toggleModalHidden())}>
+            <FavouriteIcon currentUser={currentUser} />
+          </div>
+        )}
         <Link className="option" to="/checkout">
           <CartIcon />
         </Link>
       </div>
+      {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
     </div>
   );
 };
 
-const SmallScreenNavBar = ({ currentUser, dispatch }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-    isOpen
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+    isMenuOpen
       ? (document.body.style.overflow = "auto")
       : (document.body.style.overflow = "hidden");
   };
 
   const handleSignOut = () => {
     dispatch(signOutStart());
-    setIsOpen(!isOpen);
   };
 
   const iconVariants = {
@@ -72,18 +93,28 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
+      {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
       <div className="options">
+        {currentUser ? (
+          <Link className="option" to="/favourites">
+            <FavouriteIcon currentUser={currentUser} />
+          </Link>
+        ) : (
+          <div className="option" onClick={() => dispatch(toggleModalHidden())}>
+            <FavouriteIcon currentUser={currentUser} />
+          </div>
+        )}
         <Link className="option" to="/checkout">
           <CartIcon />
         </Link>
         <motion.div
           className="option"
-          onClick={handleClick}
+          onClick={handleMenuClick}
           initial={false}
-          animate={isOpen ? "opened" : "closed"}
+          animate={isMenuOpen ? "opened" : "closed"}
           variants={iconVariants}
         >
-          {isOpen ? (
+          {isMenuOpen ? (
             <FaTimes className="menu-icon" />
           ) : (
             <FaBars className="menu-icon" />
@@ -93,16 +124,16 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
       <motion.div
         className="menu-list"
         initial={false}
-        animate={isOpen ? { y: 0 } : { y: "100%" }}
+        animate={isMenuOpen ? { y: 0 } : { y: "100%" }}
         transition={{
           ease: "easeInOut",
           duration: 0.25,
         }}
       >
-        <Link className="menu-list-item" to="/shop" onClick={handleClick}>
+        <Link className="menu-list-item" to="/shop" onClick={handleMenuClick}>
           <span>SHOP</span>
         </Link>
-        <Link className="menu-list-item" to="/" onClick={handleClick}>
+        <Link className="menu-list-item" to="/" onClick={handleMenuClick}>
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
@@ -110,7 +141,11 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
             <span>SIGN OUT</span>
           </div>
         ) : (
-          <Link className="menu-list-item" to="/signin" onClick={handleClick}>
+          <Link
+            className="menu-list-item"
+            to="/signin"
+            onClick={handleMenuClick}
+          >
             <span>SIGN IN</span>
           </Link>
         )}
@@ -122,14 +157,23 @@ const SmallScreenNavBar = ({ currentUser, dispatch }) => {
 const NavBar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
+  const showModal = useSelector(selectShowModal);
 
   const width = useViewport();
   const breakpoint = 900;
 
   return width > breakpoint ? (
-    <LargeScreenNavBar currentUser={currentUser} dispatch={dispatch} />
+    <LargeScreenNavBar
+      currentUser={currentUser}
+      dispatch={dispatch}
+      showModal={showModal}
+    />
   ) : (
-    <SmallScreenNavBar currentUser={currentUser} dispatch={dispatch} />
+    <SmallScreenNavBar
+      currentUser={currentUser}
+      dispatch={dispatch}
+      showModal={showModal}
+    />
   );
 };
 

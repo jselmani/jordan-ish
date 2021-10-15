@@ -5,8 +5,8 @@ import { useHistory } from "react-router-dom";
 import "./CheckoutItem.styles.scss";
 import {
   clearItemFromCart,
-  addItem,
-  removeItem,
+  addCartItem,
+  removeCartItem,
 } from "../../redux/cart/cart.actions";
 
 const CheckoutItem = ({ cartItem }) => {
@@ -62,14 +62,14 @@ const CheckoutItem = ({ cartItem }) => {
             <span className="quantity">
               <div
                 className="arrow"
-                onClick={() => dispatch(removeItem(cartItem))}
+                onClick={() => dispatch(removeCartItem(cartItem))}
               >
                 &#10094;
               </div>
               <span className="value">QUANTITY: {quantity}</span>
               <div
                 className="arrow"
-                onClick={() => dispatch(addItem(cartItem))}
+                onClick={() => dispatch(addCartItem(cartItem))}
               >
                 &#10095;
               </div>

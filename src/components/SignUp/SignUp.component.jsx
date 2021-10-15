@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FaTimes } from "react-icons/fa";
 
 import jordanLogoBlack from "../../images/jordan-logo-black.png";
 
@@ -9,8 +11,21 @@ import CustomButton from "../CustomButton/CustomButton.component";
 import useForm, { FormTypes } from "../../hooks/useForm";
 import validateCredentials from "../../helpers/validateCredentials";
 
-const SignUp = ({ handleClick }) => {
+import { toggleModalHidden, clearErrors } from "../../redux/user/user.actions";
+import { selectErrorMessage } from "../../redux/user/user.selectors";
+
+const SignUp = ({ handleClick, isModal }) => {
+  const dispatch = useDispatch();
+  const signInError = useSelector(selectErrorMessage);
   const type = FormTypes.SIGN_UP;
+
+  useEffect(() => {
+    if (signInError) {
+      setTimeout(() => {
+        dispatch(clearErrors());
+      }, 3000);
+    }
+  }, [dispatch, signInError]);
 
   const { handleChange, signUpCreds, handleSubmit, errors } = useForm(
     validateCredentials,
@@ -22,6 +37,14 @@ const SignUp = ({ handleClick }) => {
 
   return (
     <div className="sign-up">
+      {isModal && (
+        <div
+          className="sign-up-close-modal"
+          onClick={() => dispatch(toggleModalHidden())}
+        >
+          <FaTimes className="close-button" />
+        </div>
+      )}
       <div className="sign-up-logo">
         <img src={jordanLogoBlack} alt="Jordan Logo" />
       </div>
@@ -30,6 +53,11 @@ const SignUp = ({ handleClick }) => {
         Create your Jordan Member profile and get first access to the very best
         of Jordan products, inspiration, and community.
       </span>
+      {signInError && (
+        <span className="sign-up-error" style={{ margin: "0.5rem 0" }}>
+          {signInError}
+        </span>
+      )}
       <form onSubmit={handleSubmit}>
         <FormInput
           type="text"
@@ -76,11 +104,7 @@ const SignUp = ({ handleClick }) => {
           <span className="sign-up-error">{errors.signUpConfirmPassword}</span>
         )}
         <div className="button-container">
-          <CustomButton
-            type="submit"
-            style={{ width: "100%" }}
-            onClick={handleSubmit}
-          >
+          <CustomButton type="submit" maxWidth onClick={handleSubmit}>
             SIGN UP
           </CustomButton>
         </div>

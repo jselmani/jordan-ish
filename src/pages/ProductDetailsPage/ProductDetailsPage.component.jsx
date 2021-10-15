@@ -7,18 +7,24 @@ import "./ProductDetailsPage.styles.scss";
 import ProductImageCarousel from "../../components/ProductImageCarousel/ProductImageCarousel.component";
 import CustomButton from "../../components/CustomButton/CustomButton.component";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton.component";
-
-import { selectShoeById } from "../../redux/shop/shop.selectors";
-import { fetchShoeByIdStart } from "../../redux/shop/shop.actions";
-import { addItem } from "../../redux/cart/cart.actions";
 import {
   SuccessToast,
   ErrorToast,
 } from "../../components/Toasts/Toasts.component";
 
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { toggleModalHidden } from "../../redux/user/user.actions";
+import { selectShoeById } from "../../redux/shop/shop.selectors";
+import { fetchShoeByIdStart } from "../../redux/shop/shop.actions";
+import { addCartItem } from "../../redux/cart/cart.actions";
+import { addFavouriteItem } from "../../redux/favourite/favourite.actions";
+
+import { ProductType } from "../../helpers/ProductType";
+
 const ProductDetailsPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
+  const currentUser = useSelector(selectCurrentUser);
 
   // TODO: Create HOC to use isFetching state so ProductDetailsPage is available on page refresh
   useEffect(() => {
@@ -51,13 +57,25 @@ const ProductDetailsPage = () => {
         size: shoeSize,
         specificId: isPrimary ? shoe.id[0] : shoe.id[1],
         isPrimary,
+        toastType: ProductType.CART,
         ...shoe,
       };
-      dispatch(addItem(productToAdd));
+      dispatch(addCartItem(productToAdd));
       toast((t) => <SuccessToast t={t} {...productToAdd} />);
     } else {
       toast((t) => <ErrorToast t={t} />);
     }
+  };
+
+  const handleAddToFavourites = () => {
+    const favouriteProduct = {
+      specificId: isPrimary ? shoe.id[0] : shoe.id[1],
+      isPrimary,
+      toastType: ProductType.FAVOURITE,
+      ...shoe,
+    };
+    dispatch(addFavouriteItem(favouriteProduct));
+    toast((t) => <SuccessToast t={t} {...favouriteProduct} />);
   };
 
   const handleClick = (value) => {
@@ -67,6 +85,10 @@ const ProductDetailsPage = () => {
     } else {
       window.history.replaceState(null, "", shoe.id[1]);
     }
+  };
+
+  const dispatchModal = () => {
+    dispatch(toggleModalHidden());
   };
 
   return (
@@ -140,11 +162,12 @@ const ProductDetailsPage = () => {
             <div className="product-description">{description}</div>
           </form>
           <div className="product-buttons">
-            <CustomButton onClick={handleAddToCart}>
+            <CustomButton maxWidth onClick={handleAddToCart}>
               <h3>ADD TO BAG</h3>
             </CustomButton>
             <CustomButton
-              onClick={() => console.log("Add to favourites")}
+              maxWidth
+              onClick={currentUser ? handleAddToFavourites : dispatchModal}
               inverted
             >
               <h3>ADD TO FAVOURITES</h3>
