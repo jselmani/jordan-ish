@@ -18,7 +18,7 @@ const FavouritesPage = () => {
       </div>
       <div className="favourites-content">
         {favouriteItems.length > 0 ? (
-          favouriteItems.map((favouriteItem, index) => {
+          favouriteItems.map((favouriteItem) => {
             return (
               <ProductCard
                 key={favouriteItem.specificId}

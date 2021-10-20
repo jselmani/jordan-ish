@@ -12,7 +12,8 @@
 
   .favourites-content {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: center;
     padding: 0 0.5rem;
   }
 }
@@ -21,6 +22,7 @@
   .favourites-page {
     .favourites-content {
       flex-wrap: wrap;
+      justify-content: center;
 
       .favourites-page-empty {
         text-align: center;
@@ -34,7 +36,7 @@
 @media screen and (min-width: 35rem) {
   .favourites-page {
     .favourites-content {
-      justify-content: space-evenly;
+      justify-content: center;
     }
   }
 }
@@ -44,7 +46,7 @@
     .favourites-content {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-gap: 0.5rem;
+      grid-gap: 1rem;
 
       .favourites-page-empty {
         font-size: 32px;
