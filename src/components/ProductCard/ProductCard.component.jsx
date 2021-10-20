@@ -34,21 +34,13 @@ const FavouriteCard = (props) => {
 
   return (
     <div className="product-card favourite">
-      {isPrimary ? (
-        <img
-          className="primary-image"
-          src={primaryImages[0]}
-          alt={name}
-          onClick={routeToProduct}
-        />
-      ) : (
-        <img
-          className="primary-image"
-          src={secondaryImages[0]}
-          alt={name}
-          onClick={routeToProduct}
-        />
-      )}
+      <div className="images" onClick={routeToProduct}>
+        {isPrimary ? (
+          <img className="primary-image" src={primaryImages[0]} alt={name} />
+        ) : (
+          <img className="primary-image" src={secondaryImages[0]} alt={name} />
+        )}
+      </div>
       <div className="tag">
         <span>{tag}</span>
       </div>
@@ -97,22 +89,18 @@ const ShoppingCard = (props) => {
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
-      <img
-        className="primary-image"
-        src={primaryImages[0]}
-        alt={name}
-        onClick={routeToProduct}
-      />
-      {isVisible && secondaryImages ? (
-        <img
-          className="secondary-image"
-          src={secondaryImages[0]}
-          alt={name}
-          onClick={routeToProduct}
-        />
-      ) : (
-        <div />
-      )}
+      <div className="images" onClick={routeToProduct}>
+        <img className="primary-image" src={primaryImages[0]} alt={name} />
+        {isVisible && secondaryImages ? (
+          <img
+            className="secondary-image"
+            src={secondaryImages[0]}
+            alt={name}
+          />
+        ) : (
+          <div />
+        )}
+      </div>
       <div className="tag">
         <span>{tag}</span>
       </div>

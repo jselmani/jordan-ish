@@ -2,15 +2,22 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import "./CollectionsOverview.styles.scss";
-import { selectCollectionsForPreview } from "../../redux/shop/shop.selectors";
 import CollectionPreview from "../CollectionPreview/CollectionPreview.component";
+import JordanSpinner from "../JordanSpinner/JordanSpinner.component";
+
+import { selectCollectionsForPreview } from "../../redux/shop/shop.selectors";
 import { selectDirectorySections } from "../../redux/directory/directory.selectors";
+
+import useStartActions, { FetchTypes } from "../../hooks/useStartActions";
 
 const CollectionsOverview = () => {
   const collections = useSelector(selectCollectionsForPreview);
   const sections = useSelector(selectDirectorySections);
+  const { isFetching } = useStartActions(FetchTypes.COLLECTION, null);
 
-  return (
+  return isFetching ? (
+    <JordanSpinner />
+  ) : (
     <div className="collections-overview">
       {collections.map((collection, index) => {
         return (

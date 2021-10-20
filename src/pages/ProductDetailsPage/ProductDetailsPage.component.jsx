@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -7,6 +7,7 @@ import "./ProductDetailsPage.styles.scss";
 import ProductImageCarousel from "../../components/ProductImageCarousel/ProductImageCarousel.component";
 import CustomButton from "../../components/CustomButton/CustomButton.component";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton.component";
+import JordanSpinner from "../../components/JordanSpinner/JordanSpinner.component";
 import {
   SuccessToast,
   ErrorToast,
@@ -14,27 +15,15 @@ import {
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { toggleModalHidden } from "../../redux/user/user.actions";
-import { selectShoeById } from "../../redux/shop/shop.selectors";
-import { fetchShoeByIdStart } from "../../redux/shop/shop.actions";
+import { selectProductById } from "../../redux/shop/shop.selectors";
 import { addCartItem } from "../../redux/cart/cart.actions";
 import { addFavouriteItem } from "../../redux/favourite/favourite.actions";
 
+import useStartActions, { FetchTypes } from "../../hooks/useStartActions";
 import { ProductType } from "../../helpers/ProductType";
 
-const ProductDetailsPage = () => {
-  const dispatch = useDispatch();
-  const { productId } = useParams();
-  const currentUser = useSelector(selectCurrentUser);
-
-  // TODO: Create HOC to use isFetching state so ProductDetailsPage is available on page refresh
-  useEffect(() => {
-    dispatch(fetchShoeByIdStart(productId));
-  }, [dispatch, productId]);
-
-  const [isPrimary, setIsPrimary] = useState(true);
-  const [shoeSize, setShoeSize] = useState(null);
-
-  const shoe = useSelector(selectShoeById(productId));
+const ProductLoaded = ({ dispatch, productId, currentUser }) => {
+  const product = useSelector(selectProductById(productId));
   const {
     description,
     name,
@@ -44,7 +33,10 @@ const ProductDetailsPage = () => {
     tag,
     gender,
     sizes,
-  } = shoe;
+  } = product;
+
+  const [isPrimary, setIsPrimary] = useState(true);
+  const [productSize, setProductSize] = useState(null);
 
   // event handlers
   const handleSubmit = (event) => {
@@ -52,13 +44,13 @@ const ProductDetailsPage = () => {
   };
 
   const handleAddToCart = () => {
-    if (shoeSize) {
+    if (productSize) {
       const productToAdd = {
-        size: shoeSize,
-        specificId: isPrimary ? shoe.id[0] : shoe.id[1],
+        size: productSize,
+        specificId: isPrimary ? product.id[0] : product.id[1],
         isPrimary,
         toastType: ProductType.CART,
-        ...shoe,
+        ...product,
       };
       dispatch(addCartItem(productToAdd));
       toast((t) => <SuccessToast t={t} {...productToAdd} />);
@@ -69,10 +61,10 @@ const ProductDetailsPage = () => {
 
   const handleAddToFavourites = () => {
     const favouriteProduct = {
-      specificId: isPrimary ? shoe.id[0] : shoe.id[1],
+      specificId: isPrimary ? product.id[0] : product.id[1],
       isPrimary,
       toastType: ProductType.FAVOURITE,
-      ...shoe,
+      ...product,
     };
     dispatch(addFavouriteItem(favouriteProduct));
     toast((t) => <SuccessToast t={t} {...favouriteProduct} />);
@@ -81,9 +73,9 @@ const ProductDetailsPage = () => {
   const handleClick = (value) => {
     setIsPrimary(value);
     if (value) {
-      window.history.replaceState(null, "", shoe.id[0]);
+      window.history.replaceState(null, "", product.id[0]);
     } else {
-      window.history.replaceState(null, "", shoe.id[1]);
+      window.history.replaceState(null, "", product.id[1]);
     }
   };
 
@@ -146,12 +138,12 @@ const ProductDetailsPage = () => {
                     <div
                       className="shoe-size-option"
                       key={index}
-                      onClick={() => setShoeSize(size)}
+                      onClick={() => setProductSize(size)}
                     >
                       <CustomRadioButton
                         key={index}
                         size={size}
-                        checked={shoeSize === size}
+                        checked={productSize === size}
                         onChange={() => {}}
                       />
                     </div>
@@ -176,6 +168,23 @@ const ProductDetailsPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const ProductDetailsPage = () => {
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+  const currentUser = useSelector(selectCurrentUser);
+  const { isFetching } = useStartActions(FetchTypes.PRODUCT, productId);
+
+  return isFetching ? (
+    <JordanSpinner />
+  ) : (
+    <ProductLoaded
+      dispatch={dispatch}
+      productId={productId}
+      currentUser={currentUser}
+    />
   );
 };
 

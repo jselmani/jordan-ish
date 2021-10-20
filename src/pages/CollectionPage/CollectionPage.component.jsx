@@ -3,8 +3,11 @@ import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 
 import "./CollectionPage.styles.scss";
-import { selectCollection } from "../../redux/shop/shop.selectors";
 import ProductCard from "../../components/ProductCard/ProductCard.component";
+import JordanSpinner from "../../components/JordanSpinner/JordanSpinner.component";
+
+import { selectCollection } from "../../redux/shop/shop.selectors";
+import useStartActions, { FetchTypes } from "../../hooks/useStartActions";
 
 const CollectionPage = () => {
   const history = useHistory();
@@ -12,7 +15,11 @@ const CollectionPage = () => {
   let collection = useSelector(selectCollection(collectionId));
   const title = collectionId.replaceAll("-", " ").toUpperCase();
 
-  return (
+  const { isFetching } = useStartActions(FetchTypes.COLLECTION, null);
+
+  return isFetching ? (
+    <JordanSpinner />
+  ) : (
     <div className="collection-page">
       <h1 className="title">
         {title} | {collection.length}

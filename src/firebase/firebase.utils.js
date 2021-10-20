@@ -1,6 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore";
+import {
+  getFirestore,
+  getDoc,
+  setDoc,
+  getDocs,
+  collection,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAAkbkf44jJ1a6UbYihX5l2CeNZ1ZFK2B4",
@@ -13,7 +22,7 @@ const firebaseConfig = {
 
 const firebase = initializeApp(firebaseConfig);
 export const auth = getAuth(firebase);
-const db = getFirestore(firebase);
+export const db = getFirestore(firebase);
 
 export const createUserProfileDocument = async (userAuth, data) => {
   if (!userAuth) return;
@@ -51,5 +60,22 @@ export const getCurrentUser = () => {
     }, reject);
   });
 };
+
+export async function getShoes(db) {
+  const shoesCollection = collection(db, "shoes");
+  const shoesSnapshot = await getDocs(shoesCollection);
+  const shoeList = shoesSnapshot.docs.map((doc) => doc.data());
+  return shoeList;
+}
+
+export async function getShoe(db, shoeId) {
+  const q = query(
+    collection(db, "shoes"),
+    where("id", "array-contains", shoeId)
+  );
+  const querySnapshot = await getDocs(q);
+  const shoe = querySnapshot.docs.map((doc) => doc.data());
+  return shoe;
+}
 
 export default firebase;

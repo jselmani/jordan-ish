@@ -17,14 +17,20 @@
     filter: brightness(98%);
   }
 
-  .primary-image,
-  .secondary-image {
-    width: 100%;
-    object-fit: cover;
-  }
+  .images {
+    position: relative;
 
-  .secondary-image {
-    position: absolute;
+    .primary-image,
+    .secondary-image {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .secondary-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   .tag {
@@ -130,7 +136,7 @@
 
 @media screen and (min-width: 56rem) {
   .product-card {
-    width: 30%;
+    width: 100%;
     flex: 1 1 21%;
 
     .primary-image,

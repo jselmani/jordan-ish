@@ -1,41 +1,48 @@
 import { takeLatest, call, put, all } from "redux-saga/effects";
 
-import { fetchShoesSuccess, fetchShoeByIdSuccess } from "./shop.actions";
+import {
+  fetchShoesSuccess,
+  fetchShoesFailure,
+  fetchProductByIdSuccess,
+  fetchProductByIdFailure,
+} from "./shop.actions";
 
 import ShopActionTypes from "./shop.types";
-import shoes from "./shop.data";
 
-/**
- * TODOS:
- * Create Backend to Fetch Data from
- * Heroku, Glitch, or Firebase
- * Fetch data from backend rather than local array
- */
+import { db, getShoes, getShoe } from "../../firebase/firebase.utils";
 
 function* fetchAllShoes() {
-  yield put(fetchShoesSuccess(shoes));
+  try {
+    const shoes = yield call(getShoes, db);
+    yield put(fetchShoesSuccess(shoes));
+  } catch (err) {
+    yield put(fetchShoesFailure(err.message));
+  }
 }
 
 function* fetchAllShoesStart() {
   yield takeLatest(ShopActionTypes.FETCH_ALL_SHOES_START, fetchAllShoes);
 }
 
-function* fetchShoeById({ shoeId }) {
-  let shoePayload = null;
-  let numShoeId = parseInt(shoeId);
-  for (const shoe of shoes) {
-    if (shoe.id.includes(numShoeId)) {
-      shoePayload = shoe;
-      break;
+function* fetchProductById({ productId }) {
+  const numProductId = parseInt(productId);
+
+  try {
+    const product = yield call(getShoe, db, numProductId);
+    if (product !== undefined) {
+      yield put(fetchProductByIdSuccess(product));
+    } else {
+      yield put(fetchProductByIdFailure("Product not found."));
     }
+  } catch (err) {
+    yield put(fetchProductByIdFailure(err.message));
   }
-  yield put(fetchShoeByIdSuccess(shoePayload));
 }
 
-function* fetchShoeByIdStart() {
-  yield takeLatest(ShopActionTypes.FETCH_SHOE_BY_ID_START, fetchShoeById);
+function* fetchProductByIdStart() {
+  yield takeLatest(ShopActionTypes.FETCH_PRODUCT_BY_ID_START, fetchProductById);
 }
 
 export function* shopSagas() {
-  yield all([call(fetchAllShoesStart), call(fetchShoeByIdStart)]);
+  yield all([call(fetchAllShoesStart), call(fetchProductByIdStart)]);
 }

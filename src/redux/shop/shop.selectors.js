@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 
 const selectShoes = (state) => state.shop.shoes;
+const selectShop = (state) => state.shop;
 
 export const selectAllShoes = createSelector(selectShoes, (shoes) =>
   shoes ? shoes : []
@@ -79,38 +80,21 @@ export const selectCollection = (collectionUrlParam) => {
   }
 };
 
-export const selectShoeById = (shoeId) =>
-  createSelector(selectAllShoes, (shoes) => {
-    if (shoes) {
+export const selectProduct = createSelector(selectShop, (shop) => shop.product);
+
+export const selectProductById = (productId) =>
+  createSelector(selectAllShoes, selectProduct, (shoes, product) => {
+    if (shoes.length > 0) {
       let result = null;
-      let numShoeId = parseInt(shoeId);
-      for (const shoe of shoes) {
-        if (shoe.id.includes(numShoeId)) {
-          result = shoe;
+      let numProductId = parseInt(productId);
+      for (const product of shoes) {
+        if (product.id.includes(numProductId)) {
+          result = product;
           break;
         }
       }
       return result;
+    } else {
+      return product[0];
     }
   });
-
-/**
- * TODO:
- * Create HOC to use isFetching state so ProductDetailsPage is
- * available on page refresh without throwing an error and then use
- * the selector below.
- */
-// export const selectShoeById = () => createSelector(
-//     selectShoe,
-//     shoe => shoe ? shoe : null
-// );
-
-export const selectAreShoesFetching = createSelector(
-  selectShoes,
-  (shoes) => shoes.isFetching
-);
-
-export const selectAreShoesLoaded = createSelector(
-  selectShoes,
-  (shoes) => !!shoes
-);
