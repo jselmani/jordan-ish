@@ -14,17 +14,17 @@ export const fetchShoesFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const fetchShoeByIdStart = (shoeId) => ({
-  type: ShopActionTypes.FETCH_SHOE_BY_ID_START,
-  shoeId: shoeId,
+export const fetchProductByIdStart = (productId) => ({
+  type: ShopActionTypes.FETCH_PRODUCT_BY_ID_START,
+  productId: productId,
 });
 
-export const fetchShoeByIdSuccess = (shoe) => ({
-  type: ShopActionTypes.FETCH_SHOE_BY_ID_SUCCESS,
-  payload: shoe,
+export const fetchProductByIdSuccess = (product) => ({
+  type: ShopActionTypes.FETCH_PRODUCT_BY_ID_SUCCESS,
+  payload: product,
 });
 
-export const fetchShoeByIdFailure = (errorMessage) => ({
-  type: ShopActionTypes.FETCH_SHOE_BY_ID_FAILURE,
+export const fetchProductByIdFailure = (errorMessage) => ({
+  type: ShopActionTypes.FETCH_PRODUCT_BY_ID_FAILURE,
   payload: errorMessage,
 });

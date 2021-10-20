@@ -79,38 +79,17 @@ export const selectCollection = (collectionUrlParam) => {
   }
 };
 
-export const selectShoeById = (shoeId) =>
+export const selectProductById = (productId) =>
   createSelector(selectAllShoes, (shoes) => {
     if (shoes) {
       let result = null;
-      let numShoeId = parseInt(shoeId);
-      for (const shoe of shoes) {
-        if (shoe.id.includes(numShoeId)) {
-          result = shoe;
+      let numProductId = parseInt(productId);
+      for (const product of shoes) {
+        if (product.id.includes(numProductId)) {
+          result = product;
           break;
         }
       }
       return result;
     }
   });
-
-/**
- * TODO:
- * Create HOC to use isFetching state so ProductDetailsPage is
- * available on page refresh without throwing an error and then use
- * the selector below.
- */
-// export const selectShoeById = () => createSelector(
-//     selectShoe,
-//     shoe => shoe ? shoe : null
-// );
-
-export const selectAreShoesFetching = createSelector(
-  selectShoes,
-  (shoes) => shoes.isFetching
-);
-
-export const selectAreShoesLoaded = createSelector(
-  selectShoes,
-  (shoes) => !!shoes
-);
