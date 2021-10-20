@@ -20,8 +20,6 @@ import Modal from "./components/Modal/Modal.component";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop.component";
 import ViewportProvider from "./contexts/viewportcontext";
 
-import { fetchAllShoesStart } from "./redux/shop/shop.actions";
-
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 
@@ -33,10 +31,6 @@ const App = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const showFavouriteModal = useSelector(selectFavouriteModal);
-
-  useEffect(() => {
-    dispatch(fetchAllShoesStart());
-  }, [dispatch]);
 
   useEffect(() => {
     dispatch(checkUserSession());

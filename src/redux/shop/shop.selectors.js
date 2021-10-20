@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 
 const selectShoes = (state) => state.shop.shoes;
+const selectShop = (state) => state.shop;
 
 export const selectAllShoes = createSelector(selectShoes, (shoes) =>
   shoes ? shoes : []
@@ -79,9 +80,11 @@ export const selectCollection = (collectionUrlParam) => {
   }
 };
 
+export const selectProduct = createSelector(selectShop, (shop) => shop.product);
+
 export const selectProductById = (productId) =>
-  createSelector(selectAllShoes, (shoes) => {
-    if (shoes) {
+  createSelector(selectAllShoes, selectProduct, (shoes, product) => {
+    if (shoes.length > 0) {
       let result = null;
       let numProductId = parseInt(productId);
       for (const product of shoes) {
@@ -91,5 +94,7 @@ export const selectProductById = (productId) =>
         }
       }
       return result;
+    } else {
+      return product[0];
     }
   });
