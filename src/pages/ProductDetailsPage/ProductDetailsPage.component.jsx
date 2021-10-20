@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -7,6 +7,7 @@ import "./ProductDetailsPage.styles.scss";
 import ProductImageCarousel from "../../components/ProductImageCarousel/ProductImageCarousel.component";
 import CustomButton from "../../components/CustomButton/CustomButton.component";
 import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton.component";
+import JordanSpinner from "../../components/JordanSpinner/JordanSpinner.component";
 import {
   SuccessToast,
   ErrorToast,
@@ -15,21 +16,13 @@ import {
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { toggleModalHidden } from "../../redux/user/user.actions";
 import { selectProductById } from "../../redux/shop/shop.selectors";
-import { fetchProductByIdStart } from "../../redux/shop/shop.actions";
 import { addCartItem } from "../../redux/cart/cart.actions";
 import { addFavouriteItem } from "../../redux/favourite/favourite.actions";
 
+import useStartActions, { FetchTypes } from "../../hooks/useStartActions";
 import { ProductType } from "../../helpers/ProductType";
 
-const ProductDetailsPage = () => {
-  const dispatch = useDispatch();
-  const { productId } = useParams();
-  const currentUser = useSelector(selectCurrentUser);
-
-  useEffect(() => {
-    dispatch(fetchProductByIdStart(productId));
-  }, [dispatch, productId]);
-
+const ProductLoaded = ({ dispatch, productId, currentUser }) => {
   const product = useSelector(selectProductById(productId));
   const {
     description,
@@ -175,6 +168,23 @@ const ProductDetailsPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const ProductDetailsPage = () => {
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+  const currentUser = useSelector(selectCurrentUser);
+  const { isFetching } = useStartActions(FetchTypes.PRODUCT, productId);
+
+  return isFetching ? (
+    <JordanSpinner />
+  ) : (
+    <ProductLoaded
+      dispatch={dispatch}
+      productId={productId}
+      currentUser={currentUser}
+    />
   );
 };
 
