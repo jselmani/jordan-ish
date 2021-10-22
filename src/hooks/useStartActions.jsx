@@ -1,10 +1,15 @@
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   fetchAllShoesStart,
   fetchProductByIdStart,
 } from "../redux/shop/shop.actions";
+import {
+  selectIsFetching,
+  selectAllShoes,
+  selectIsProductLoaded,
+} from "../redux/shop/shop.selectors";
 
 export const FetchTypes = {
   COLLECTION: "COLLECTION",
@@ -13,21 +18,25 @@ export const FetchTypes = {
 
 export const useStartActions = (type, productId) => {
   const dispatch = useDispatch();
-  const [isFetching, setIsFetching] = useState(true);
+  const isFetching = useSelector(selectIsFetching);
+  const isProductLoaded = useSelector(selectIsProductLoaded);
+  const shoes = useSelector(selectAllShoes);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = () => {
       if (type === FetchTypes.COLLECTION) {
-        dispatch(fetchAllShoesStart());
+        if (shoes.length === 0) {
+          dispatch(fetchAllShoesStart());
+        }
       } else {
         dispatch(fetchProductByIdStart(productId));
       }
     };
-    // gnarly code, can be improved significantly
-    fetchData().then(() => setTimeout(() => setIsFetching(false), 1500));
-  }, [dispatch, type, productId]);
 
-  return { isFetching: isFetching };
+    fetchData();
+  }, [dispatch, type, productId, shoes]);
+
+  return { isFetching, isProductLoaded };
 };
 
 export default useStartActions;

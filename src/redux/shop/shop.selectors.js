@@ -98,3 +98,13 @@ export const selectProductById = (productId) =>
       return product[0];
     }
   });
+
+export const selectIsFetching = createSelector(
+  selectShop,
+  (shop) => shop.isFetching
+);
+
+export const selectIsProductLoaded = createSelector(
+  selectShop,
+  (shop) => !!shop.product
+);

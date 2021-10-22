@@ -175,9 +175,9 @@ const ProductDetailsPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const currentUser = useSelector(selectCurrentUser);
-  const { isFetching } = useStartActions(FetchTypes.PRODUCT, productId);
+  const { isProductLoaded } = useStartActions(FetchTypes.PRODUCT, productId);
 
-  return isFetching ? (
+  return !isProductLoaded ? (
     <JordanSpinner />
   ) : (
     <ProductLoaded
