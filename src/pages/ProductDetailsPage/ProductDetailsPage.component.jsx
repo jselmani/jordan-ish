@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import "./ProductDetailsPage.styles.scss";
-import ProductImageCarousel from "../../components/ProductImageCarousel/ProductImageCarousel.component";
+import ProductImages from "../../components/ProductImages/ProductImages.component";
+import ProductOptionsGroup from "../../components/ProductOptionsGroup/ProductOptionsGroup.component";
+import SizeOptionsGroup from "../../components/SizeOptionsGroup/SizeOptionsGroup.component";
 import CustomButton from "../../components/CustomButton/CustomButton.component";
-import CustomRadioButton from "../../components/CustomRadioButton/CustomRadioButton.component";
 import JordanSpinner from "../../components/JordanSpinner/JordanSpinner.component";
 import {
   SuccessToast,
@@ -89,41 +90,20 @@ const ProductLoaded = ({ dispatch, productId, currentUser }) => {
         <h1>{name.toUpperCase()}</h1>
       </div>
       <div className="product-info">
-        <div className="product-images-container">
-          {isPrimary ? (
-            <ProductImageCarousel
-              className="primary-image"
-              images={primaryImages}
-            />
-          ) : (
-            <ProductImageCarousel
-              className="secondary-image"
-              images={secondaryImages}
-            />
-          )}
-        </div>
+        <ProductImages
+          isPrimary={isPrimary}
+          primaryImages={primaryImages}
+          secondaryImages={secondaryImages}
+        />
         <div className="product-details">
           <h2 className="product-details-title">PRODUCT DETAILS</h2>
           {secondaryImages ? (
-            <div className="product-options">
-              <div className="product-option" onClick={() => handleClick(true)}>
-                <img
-                  className={isPrimary ? "selected" : ""}
-                  src={primaryImages[0]}
-                  alt="Option 1"
-                />
-              </div>
-              <div
-                className="product-option"
-                onClick={() => handleClick(false)}
-              >
-                <img
-                  className={isPrimary ? "" : "selected"}
-                  src={secondaryImages[0]}
-                  alt="Option 2"
-                />
-              </div>
-            </div>
+            <ProductOptionsGroup
+              isPrimary={isPrimary}
+              primaryImages={primaryImages}
+              secondaryImages={secondaryImages}
+              handleClick={handleClick}
+            />
           ) : null}
           <span className="product-price .product-gender">
             ${price} | {gender.toUpperCase()}
@@ -132,24 +112,11 @@ const ProductLoaded = ({ dispatch, productId, currentUser }) => {
           <form onSubmit={handleSubmit} className="product-add-to-cart-form">
             <div className="shoe-size-container">
               <span className="shoe-size-title">Select Size</span>
-              <div className="shoe-size-options">
-                {sizes.map((size, index) => {
-                  return (
-                    <div
-                      className="shoe-size-option"
-                      key={index}
-                      onClick={() => setProductSize(size)}
-                    >
-                      <CustomRadioButton
-                        key={index}
-                        size={size}
-                        checked={productSize === size}
-                        onChange={() => {}}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
+              <SizeOptionsGroup
+                sizes={sizes}
+                productSize={productSize}
+                setProductSize={setProductSize}
+              />
             </div>
             <div className="product-description">{description}</div>
           </form>
@@ -175,9 +142,9 @@ const ProductDetailsPage = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const currentUser = useSelector(selectCurrentUser);
-  const { isFetching } = useStartActions(FetchTypes.PRODUCT, productId);
+  const { isProductLoaded } = useStartActions(FetchTypes.PRODUCT, productId);
 
-  return isFetching ? (
+  return !isProductLoaded ? (
     <JordanSpinner />
   ) : (
     <ProductLoaded
