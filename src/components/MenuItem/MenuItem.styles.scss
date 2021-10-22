@@ -1,7 +1,4 @@
 .menu-item {
-  width: 30vw;
-  height: 300px;
-  flex: 1 1 33.3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,5 +60,25 @@
     font-size: 16px;
     color: white;
     margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .menu-item {
+    width: 90vw;
+    height: 300px;
+    flex: 1 1 50%;
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .menu-item {
+    flex: 1 1 45%;
+  }
+}
+
+@media screen and (min-width: 56rem) {
+  .menu-item {
+    height: 450px;
   }
 }

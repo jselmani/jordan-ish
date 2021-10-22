@@ -32,13 +32,13 @@
 
       .checkout-item-remove {
         color: grey;
+        cursor: pointer;
 
         span {
           border-bottom: 1px solid lightgrey;
 
           &:hover {
             color: red;
-            cursor: pointer;
             border-bottom: 1px solid red;
           }
         }
@@ -78,17 +78,17 @@
 
     .checkout-item-details {
       .checkout-item-name-price {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .checkout-item-tag-size,
       .checkout-item-gender {
         margin: 0.1rem 0;
-        font-size: 14px;
+        font-size: 12px;
       }
 
       .checkout-item-footer {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
