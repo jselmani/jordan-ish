@@ -7,6 +7,8 @@ import {
   fetchProductByIdFailure,
 } from "./shop.actions";
 
+import { selectProductById } from "./shop.selectors";
+
 import ShopActionTypes from "./shop.types";
 
 import { db, getShoes, getShoe } from "../../firebase/firebase.utils";
@@ -24,11 +26,17 @@ function* fetchAllShoesStart() {
   yield takeLatest(ShopActionTypes.FETCH_ALL_SHOES_START, fetchAllShoes);
 }
 
-function* fetchProductById({ productId }) {
+function* fetchProductById({ productId, shoes }) {
   const numProductId = parseInt(productId);
+  let product = undefined;
 
   try {
-    const product = yield call(getShoe, db, numProductId);
+    if (shoes.length === 0 || shoes === null) {
+      product = yield call(getShoe, db, numProductId);
+    } else {
+      product = selectProductById(productId);
+    }
+
     if (product !== undefined) {
       yield put(fetchProductByIdSuccess(product));
     } else {
