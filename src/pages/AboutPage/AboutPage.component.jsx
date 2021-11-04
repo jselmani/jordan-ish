@@ -115,6 +115,10 @@ const AboutPage = () => {
           Create Sass variables for colours, font sizes, line heights, etc. used
           throughout the project.
         </li>
+        <li className="help-list-item">
+          Fix package warnings upon install. I spent a lot of time attempting to
+          do it and could use a hand getting that cleaned up.
+        </li>
       </ul>
     </motion.div>
   );
