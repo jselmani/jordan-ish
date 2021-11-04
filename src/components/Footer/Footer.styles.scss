@@ -6,6 +6,16 @@
   padding-top: 15px;
   z-index: 10;
 
+  a {
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+      color: red;
+      text-decoration: underline;
+    }
+  }
+
   .footer-content {
     display: flex;
     flex-direction: column;

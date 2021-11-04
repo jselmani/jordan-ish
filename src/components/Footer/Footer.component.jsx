@@ -17,7 +17,16 @@ const Footer = () => {
           <br />
           All content rights are reserved to Nike and Jordan brand.
         </span>
-        <span className="credits">Developed with ❤️ by Jiel Selmani</span>
+        <span className="credits">
+          Developed with ❤️ by{" "}
+          <a
+            href="https://github.com/jselmani/jordan-ish"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Jiel Selmani
+          </a>
+        </span>
       </div>
     </motion.div>
   );

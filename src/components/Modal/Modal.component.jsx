@@ -24,7 +24,7 @@ const FavouriteModal = () => {
   const { sizes, name, primaryImages, secondaryImages, isPrimary } = modalItem;
 
   const handleCloseModal = () => {
-    dispatch(togglefavouriteModal());
+    dispatch(togglefavouriteModal(modalItem));
   };
 
   const handleAddToCart = () => {
