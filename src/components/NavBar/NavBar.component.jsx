@@ -31,6 +31,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      key="large-navbar"
       className="navbar"
     >
       <Link className="logo-container" to="/">
@@ -94,7 +95,13 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   };
 
   return (
-    <div className="navbar">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key="small-navbar"
+      className="navbar"
+    >
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
@@ -155,7 +162,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
           </Link>
         )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

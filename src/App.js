@@ -41,11 +41,11 @@ const App = () => {
     <div className="App">
       <ViewportProvider>
         <AnimatePresence>
-          <Toaster position="bottom-center" />
-          <NavBar />
+          <Toaster key="toaster" position="bottom-center" />
+          <NavBar key="navbar" />
           {showFavouriteModal && <Modal modalFlow={ModalFlow.FAVOURITE_FLOW} />}
-          <ScrollToTop />
-          <Switch>
+          <ScrollToTop key="scrollToTop" />
+          <Switch key="switch">
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route
@@ -68,7 +68,7 @@ const App = () => {
               component={FavouritesPage}
             />
           </Switch>
-          <Footer />
+          <Footer key="footer" />
         </AnimatePresence>
       </ViewportProvider>
     </div>

@@ -29,7 +29,7 @@ const CollectionsOverview = () => {
       {collections.map((collection, index) => {
         return (
           <CollectionPreview
-            key={index}
+            key={sections[index].title}
             title={sections[index].title}
             collection={collection}
           />
