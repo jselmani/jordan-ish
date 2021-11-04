@@ -1,5 +1,4 @@
 .title-text {
-  text-align: left;
   padding-left: 10px;
 
   .title {
@@ -10,5 +9,17 @@
   .subtitle {
     font-weight: 500;
     margin-top: -1em;
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .title-text {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .title-text {
+    text-align: left;
   }
 }

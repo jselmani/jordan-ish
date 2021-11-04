@@ -27,7 +27,12 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   };
 
   return (
-    <div className="navbar">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="navbar"
+    >
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
@@ -61,7 +66,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         </Link>
       </div>
       {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
-    </div>
+    </motion.div>
   );
 };
 

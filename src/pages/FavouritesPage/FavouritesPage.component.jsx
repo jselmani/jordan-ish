@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import "./FavouritesPage.styles.scss";
 import ProductCard from "../../components/ProductCard/ProductCard.component";
@@ -12,7 +13,13 @@ const FavouritesPage = () => {
   const history = useHistory();
 
   return (
-    <div className="favourites-page">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="favourites-page"
+    >
       <div className="favourites-page-title">
         <h1>MY JAY'S</h1>
       </div>
@@ -34,7 +41,7 @@ const FavouritesPage = () => {
           <h1 className="favourites-page-empty">GO PICK SOME FAVES, HOOPER.</h1>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
