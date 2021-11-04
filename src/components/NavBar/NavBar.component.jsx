@@ -27,7 +27,13 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   };
 
   return (
-    <div className="navbar">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key="large-navbar"
+      className="navbar"
+    >
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
@@ -35,7 +41,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         <Link className="option" to="/shop">
           <span>SHOP</span>
         </Link>
-        <Link className="option" to="/">
+        <Link className="option" to="/about">
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
@@ -61,7 +67,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         </Link>
       </div>
       {showModal && <Modal modalFlow={ModalFlow.SIGN_IN_UP_FLOW} />}
-    </div>
+    </motion.div>
   );
 };
 
@@ -89,7 +95,13 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
   };
 
   return (
-    <div className="navbar">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key="small-navbar"
+      className="navbar"
+    >
       <Link className="logo-container" to="/">
         <img src={jordanLogo} alt="jordan logo" />
       </Link>
@@ -133,7 +145,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         <Link className="menu-list-item" to="/shop" onClick={handleMenuClick}>
           <span>SHOP</span>
         </Link>
-        <Link className="menu-list-item" to="/" onClick={handleMenuClick}>
+        <Link className="menu-list-item" to="/about" onClick={handleMenuClick}>
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
@@ -150,7 +162,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
           </Link>
         )}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

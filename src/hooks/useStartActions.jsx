@@ -25,11 +25,11 @@ export const useStartActions = (type, productId) => {
   useEffect(() => {
     const fetchData = () => {
       if (type === FetchTypes.COLLECTION) {
-        if (shoes.length === 0) {
+        if (shoes.length === 0 || shoes === null) {
           dispatch(fetchAllShoesStart());
         }
       } else {
-        dispatch(fetchProductByIdStart(productId));
+        dispatch(fetchProductByIdStart(productId, shoes));
       }
     };
 

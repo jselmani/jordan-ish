@@ -4,9 +4,28 @@
   height: 50vh;
   position: relative;
   overflow: hidden;
-  filter: brightness(50%);
+
+  .hero-text {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    color: white;
+  }
 
   .hero-image {
     position: absolute;
+    filter: brightness(30%);
+  }
+}
+
+@media screen and (min-width: 10rem) {
+  .hero-text {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .hero-text {
+    font-size: 36px;
   }
 }

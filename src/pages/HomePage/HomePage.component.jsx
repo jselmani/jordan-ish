@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 import "./HomePage.styles.scss";
 
@@ -8,14 +9,20 @@ import TitleText from "../../components/TitleText/TitleText.component";
 
 const HomePage = () => {
   return (
-    <div className="homepage">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="homepage"
+    >
       <Jumbotron />
       <TitleText
         title="SHOP COLLECTIONS"
         subtitle="Our top collections all in one place"
       />
       <Directory />
-    </div>
+    </motion.div>
   );
 };
 

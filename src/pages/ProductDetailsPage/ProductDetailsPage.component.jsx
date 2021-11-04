@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 import "./ProductDetailsPage.styles.scss";
 import ProductImages from "../../components/ProductImages/ProductImages.component";
@@ -85,7 +86,13 @@ const ProductLoaded = ({ dispatch, productId, currentUser }) => {
   };
 
   return (
-    <div className="product-details-page">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="product-details-page"
+    >
       <div className="product-title">
         <h1>{name.toUpperCase()}</h1>
       </div>
@@ -134,7 +141,7 @@ const ProductLoaded = ({ dispatch, productId, currentUser }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

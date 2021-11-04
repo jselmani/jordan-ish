@@ -14,9 +14,10 @@ export const fetchShoesFailure = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const fetchProductByIdStart = (productId) => ({
+export const fetchProductByIdStart = (productId, shoes) => ({
   type: ShopActionTypes.FETCH_PRODUCT_BY_ID_START,
   productId: productId,
+  shoes: shoes,
 });
 
 export const fetchProductByIdSuccess = (product) => ({

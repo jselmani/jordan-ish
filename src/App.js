@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
 
 import HomePage from "./pages/HomePage/HomePage.component";
 import ShopPage from "./pages/ShopPage/ShopPage.component";
+import AboutPage from "./pages/AboutPage/AboutPage.component";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.component";
 import SignInSignUpPage from "./pages/SignInSignUpPage/SignInSignUp.component";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
@@ -39,34 +41,37 @@ const App = () => {
   return (
     <div className="App">
       <ViewportProvider>
-        <Toaster position="bottom-center" />
-        <NavBar />
-        {showFavouriteModal && <Modal modalFlow={ModalFlow.FAVOURITE_FLOW} />}
-        <ScrollToTop />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route
-            exact
-            path="/products/:productId"
-            component={ProductDetailsPage}
-          />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <SignInSignUpPage />
-            }
-          />
-          <Route exact path="/checkout" component={CheckoutPage} />
-          <ProtectedRoute
-            exact
-            path="/favourites"
-            currentUser={currentUser}
-            component={FavouritesPage}
-          />
-        </Switch>
-        <Footer />
+        <AnimatePresence>
+          <Toaster key="toaster" position="bottom-center" />
+          <NavBar key="navbar" />
+          {showFavouriteModal && <Modal modalFlow={ModalFlow.FAVOURITE_FLOW} />}
+          <ScrollToTop key="scrollToTop" />
+          <Switch key="switch">
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route exact path="/about" component={AboutPage} />
+            <Route
+              exact
+              path="/products/:productId"
+              component={ProductDetailsPage}
+            />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignInSignUpPage />
+              }
+            />
+            <Route exact path="/checkout" component={CheckoutPage} />
+            <ProtectedRoute
+              exact
+              path="/favourites"
+              currentUser={currentUser}
+              component={FavouritesPage}
+            />
+          </Switch>
+          <Footer key="footer" />
+        </AnimatePresence>
       </ViewportProvider>
     </div>
   );

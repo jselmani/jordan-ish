@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 import "./CollectionsOverview.styles.scss";
 import CollectionPreview from "../CollectionPreview/CollectionPreview.component";
@@ -18,17 +19,23 @@ const CollectionsOverview = () => {
   return isFetching ? (
     <JordanSpinner />
   ) : (
-    <div className="collections-overview">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="collections-overview"
+    >
       {collections.map((collection, index) => {
         return (
           <CollectionPreview
-            key={index}
+            key={sections[index].title}
             title={sections[index].title}
             collection={collection}
           />
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 

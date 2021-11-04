@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 import "./CheckoutPage.styles.scss";
 import CheckoutItem from "../../components/CheckoutItem/CheckoutItem.component";
@@ -15,7 +16,13 @@ const CheckoutPage = () => {
   const total = useSelector(selectCartTotal);
 
   return (
-    <div className="checkout-page">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ ease: "easeInOut", duration: 1 }}
+      className="checkout-page"
+    >
       <h1 className="checkout-page-title">BAG</h1>
       {!cartItems.length ? (
         <h2 className="checkout-page-empty">
@@ -57,7 +64,7 @@ const CheckoutPage = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

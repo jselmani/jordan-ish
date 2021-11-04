@@ -24,7 +24,7 @@ const ProductImageCarousel = ({ images }) => {
       >
         {images.map((image, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={image}>
               <img className="large-product-image" src={image} alt="product" />
             </SwiperSlide>
           );
