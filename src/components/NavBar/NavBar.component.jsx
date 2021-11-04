@@ -41,7 +41,7 @@ const LargeScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         <Link className="option" to="/shop">
           <span>SHOP</span>
         </Link>
-        <Link className="option" to="/">
+        <Link className="option" to="/about">
           <span>ABOUT</span>
         </Link>
         {currentUser ? (
@@ -145,7 +145,7 @@ const SmallScreenNavBar = ({ currentUser, dispatch, showModal }) => {
         <Link className="menu-list-item" to="/shop" onClick={handleMenuClick}>
           <span>SHOP</span>
         </Link>
-        <Link className="menu-list-item" to="/" onClick={handleMenuClick}>
+        <Link className="menu-list-item" to="/about" onClick={handleMenuClick}>
           <span>ABOUT</span>
         </Link>
         {currentUser ? (

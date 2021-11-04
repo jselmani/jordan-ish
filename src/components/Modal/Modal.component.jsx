@@ -35,7 +35,7 @@ const FavouriteModal = () => {
         ...modalItem,
       };
       dispatch(addCartItem(productToAdd));
-      dispatch(togglefavouriteModal());
+      dispatch(togglefavouriteModal(modalItem));
     } else {
       setError("You have to pick a size to add the product to your bag.");
     }

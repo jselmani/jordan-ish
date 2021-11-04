@@ -8,6 +8,7 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage/HomePage.component";
 import ShopPage from "./pages/ShopPage/ShopPage.component";
+import AboutPage from "./pages/AboutPage/AboutPage.component";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.component";
 import SignInSignUpPage from "./pages/SignInSignUpPage/SignInSignUp.component";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.component";
@@ -48,6 +49,7 @@ const App = () => {
           <Switch key="switch">
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
+            <Route exact path="/about" component={AboutPage} />
             <Route
               exact
               path="/products/:productId"
