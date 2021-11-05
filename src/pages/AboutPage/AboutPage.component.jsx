@@ -119,6 +119,10 @@ const AboutPage = () => {
           Fix package warnings upon install. I spent a lot of time attempting to
           do it and could use a hand getting that cleaned up.
         </li>
+        <li className="help-list-item">
+          Hide secret keys as environment variables. I'm so busy in my day to
+          day that I currently don't have time to get this done.
+        </li>
       </ul>
     </motion.div>
   );
