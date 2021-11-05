@@ -41,41 +41,41 @@ If you want to log in to view the features entirely, you can use the following c
 
 ---
 # 🚀 Technologies
-- ### React
-- ### React Hooks
-- ### React Context API
-- ### React Router
-- ### Redux
-- ### Redux Saga
-- ### Redux Persist
-- ### Reselect
-- ### Firebase
-- ### Sass
-- ### SwiperJS
-- ### Framer Motion
-- ### React Icons
-- ### Vercel
+- React
+- React Hooks
+- React Context API
+- React Router
+- Redux
+- Redux Saga
+- Redux Persist
+- Reselect
+- Firebase
+- Sass
+- SwiperJS
+- Framer Motion
+- React Icons
+- Vercel
 
 ---
 # 💀 Challenges I Faced
-- ### Wrapping my head around Functional React after writing code using `Class` components
-- ### Naming many different components properly to provide the appropriate context to what each component does
-- ### Separating concerns into the appropriate location in the app
-- ### Managing and setting up `JSON` data properly in Firebase to be fetched properly
-- ### Structuring the applications scaffold so that other developers know exactly where to find components, files, etc.
+- Wrapping my head around Functional React after writing code using `Class` components
+- Naming many different components properly to provide the appropriate context to what each component does
+- Separating concerns into the appropriate location in the applications structure.
+- Managing and setting up `JSON` data properly in Firebase to be fetched properly
+- Structuring the applications scaffold so that other developers know exactly where to find components, files, etc.
 
 ---
 # ⏰ What I Would Do If I Had More Time
- - ### Use React Lazy to minimize network load and load things in chunks rather than one large chunk file.
- - ### Use debounce in my useViewport hook so that the Navbar isn't rendering numerous times when the viewport size changes
- - ### Implement Stripe so that a User can go through a checkout flow using a fake credit card.
- - ### Create error boundaries and a custom designed 404 page.
- - ### A filtering feature so users can find a specific shoe using certain criteria.
- - ### Write Snapshot, Integration, and Unit tests.
- - ### Update the document title to reflect what page the User is currently viewing.
- - ### Add loading spinners to buttons when performing asynchronous actions (ie. creating an account or logging in).
- - ### Create Sass variables for colours, font sizes, line heights, etc. use throughout the project.
- - ### Fix package warnings upon install.
+ - Use React Lazy to minimize network load and load things in chunks rather than one large chunk file.
+ - Use debounce in my useViewport hook so that the Navbar isn't rendering numerous times when the viewport size changes
+ - Implement Stripe so that a User can go through a checkout flow using a fake credit card.
+ - Create error boundaries and a custom designed 404 page.
+ - A filtering feature so users can find a specific shoe using certain criteria.
+ - Write Snapshot, Integration, and Unit tests.
+ - Update the document title to reflect what page the User is currently viewing.
+ - Add loading spinners to buttons when performing asynchronous actions (ie. creating an account or logging in).
+ - Create Sass variables for colours, font sizes, line heights, etc. use throughout the project.
+ - Fix package warnings upon install.
 
 ---
 # 👨🏻‍💻 Run Locally
