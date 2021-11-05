@@ -94,5 +94,5 @@ If you want to log in to view the features entirely, you can use the following c
 `npm start`
 
 ---
-# ✅ Requiurements
+# ✅ Requirements
 Before starting, you need to have Git and Node installed on your machine.
