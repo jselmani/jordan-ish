@@ -1,4 +1,4 @@
-![Jordan-ish](./public/project-preview-image.png)
+![Jordan-ish](./public/project-preview-image.PNG)
 # Jordan-ish
 > This is a project created with mid-level complexity using the React ecosystem.  Loving the Jordan brand, this felt like a project I would really enjoy building.  Using my own design elements and building every component (except Swiper) from scratch to test my design skills.  
 
