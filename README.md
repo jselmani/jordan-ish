@@ -38,6 +38,7 @@ If you want to log in to view the features entirely, you can use the following c
 - ✔️ Window listener to ensure pages are loaded at the top through custom component
 - ✔️ Add/Remove/Update cart and favourites lists
 - ✔️ Collection previews prior to viewing an entire collection
+- ✔️ Use Toasts to display when an action/event has occurred.
 
 ---
 # 🚀 Technologies
@@ -55,6 +56,7 @@ If you want to log in to view the features entirely, you can use the following c
 - Framer Motion
 - React Icons
 - Vercel
+- React Hot Toast
 
 ---
 # 💀 Challenges I Faced
